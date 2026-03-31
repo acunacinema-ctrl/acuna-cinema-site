@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-6">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/acunacinema/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 hover:text-champagne transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
@@ -35,13 +35,13 @@ export default function Footer() {
             Instagram
           </a>
           <a
-            href="https://vimeo.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 hover:text-champagne transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-          >
-            Vimeo
-          </a>
+  href="https://www.facebook.com/profile.php?id=61550870555249"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 hover:text-champagne transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+>
+  Facebook
+</a>
         </div>
 
         <p className="font-display italic text-parchment/15 text-sm">
@@ -50,7 +50,7 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="mailto:hello@acunacinema.com"
+            href="mailto:acunacinema@gmail.com"
             className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 hover:text-champagne transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             Email
