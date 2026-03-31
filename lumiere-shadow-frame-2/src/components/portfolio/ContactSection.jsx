@@ -50,7 +50,7 @@ export default function ContactSection() {
             </div>
             <div>
               <p className="font-interface text-[10px] tracking-editorial uppercase text-champagne/40 mb-1">Based in</p>
-              <p className="font-narrative text-parchment/60 text-sm">Milan, Italy — Available Worldwide</p>
+              <p className="font-narrative text-parchment/60 text-sm">Grand Rapids, Michigan — Traveling Worldwide</p>
             </div>
           </div>
         </motion.div>
