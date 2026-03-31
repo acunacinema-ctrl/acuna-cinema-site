@@ -4,18 +4,18 @@ import FilmCard from './FilmCard';
 
 const films = [
   {
-    title: 'Anna & Chris',
-    location: 'Saline, Michigan',
-    year: '2025',
-    cover: 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/ca4922e43_wedding_parasol_16x9_download.png',
-    filmUrl: 'https://vimeo.com/1173873620',
-  },
-  {
     title: 'Rachel & Martin',
     location: 'Holland, Michigan',
     year: '2025',
     cover: 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/b54ec9c85_67a7b444-7ebf-4528-9b7f-64aafc9c949e.png',
     filmUrl: 'https://vimeo.com/1178909337?share=copy&fl=sv&fe=ci',
+  },
+  {
+    title: 'Anna & Chris',
+    location: 'Saline, Michigan',
+    year: '2025',
+    cover: 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/ca4922e43_wedding_parasol_16x9_download.png',
+    filmUrl: 'https://vimeo.com/1173873620',
   },
   {
     title: 'Janae & Sergio',
