@@ -71,11 +71,7 @@ export default function PortfolioGrid({ images }) {
             alt={images[1]?.alt}
             className="aspect-[16/9]"
           />
-          <div className="hidden md:flex items-end pb-8 pl-4">
-            <p className="font-display italic text-parchment/20 text-6xl lg:text-7xl leading-none">
-              I
-            </p>
-          </div>
+
         </div>
 
         {/* Row 2 */}
