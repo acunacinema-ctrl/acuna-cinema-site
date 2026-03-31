@@ -44,8 +44,8 @@ export default function ContactSection() {
           <div className="space-y-4 hidden md:block">
             <div>
               <p className="font-interface text-[10px] tracking-editorial uppercase text-champagne/40 mb-1">Email</p>
-              <a href="mailto:hello@acunacinema.com" className="font-narrative text-parchment/60 hover:text-champagne transition-colors text-sm">
-                hello@acunacinema.com
+              <a href="mailto:acunacinema@gmail.com?subject=Wedding%20Film%20Inquiry&body=Hi,%0A%0AI%27m%20interested%20in%20your%20wedding%20films.%0A%0ADate:%0ALocation:%0AVenue:%0A%0AEstimated%20Budget:%0A%0AThank%20you!" className="font-narrative text-parchment/60 hover:text-champagne transition-colors text-sm">
+                acunacinema@gmail.com
               </a>
             </div>
             <div>
