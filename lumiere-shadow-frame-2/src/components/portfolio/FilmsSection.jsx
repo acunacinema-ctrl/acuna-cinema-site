@@ -15,7 +15,7 @@ const films = [
     location: 'Holland, Michigan',
     year: '2025',
     cover: 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/b54ec9c85_67a7b444-7ebf-4528-9b7f-64aafc9c949e.png',
-    filmUrl: 'https://vimeo.com/1174574894',
+    filmUrl: 'https://vimeo.com/1178909337?share=copy&fl=sv&fe=ci',
   },
   {
     title: 'Janae & Sergio',
