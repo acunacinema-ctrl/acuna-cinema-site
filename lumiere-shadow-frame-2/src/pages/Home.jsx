@@ -7,9 +7,10 @@ import AboutSection from '../components/portfolio/AboutSection';
 import ServicesSection from '../components/portfolio/ServicesSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import Footer from '../components/portfolio/Footer';
+import myPhoto from '../assets/me.png';
 
 const HERO_IMAGE = 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/650c6366d_ChatGPTImageJan232026at06_31_22PM.png';
-const PORTRAIT_IMAGE = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/7854a43e5_generated_97248dae.png';
+const PORTRAIT_IMAGE = myPhoto;
 
 const PORTFOLIO_IMAGES = [
   {
