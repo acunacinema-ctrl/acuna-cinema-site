@@ -12,7 +12,7 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
   {
   label: "Behind The Lens",
-  href: "/behind-the-lens",
+  href: "/BehindTheLens",
   isPage: true
 }
 ];
