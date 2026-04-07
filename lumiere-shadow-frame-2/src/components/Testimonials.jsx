@@ -27,22 +27,23 @@ const testimonials = [
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const paginate = (dir) => {
+    setDirection(dir);
+    setCurrent((prev) => (prev + dir + testimonials.length) % testimonials.length);
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 7000);
-
+    const timer = setInterval(() => paginate(1), 7000);
     return () => clearInterval(timer);
   }, []);
 
   const t = testimonials[current];
 
   return (
-    <section
-      id="testimonials"
-      className="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 text-center overflow-hidden"
-    >
+    <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-20 text-center overflow-hidden">
+      
       {/* Background quote */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <p className="font-display italic text-parchment/[0.03] text-[18rem] leading-none">
@@ -55,28 +56,35 @@ export default function Testimonials() {
         <p className="font-interface text-[10px] tracking-editorial uppercase text-champagne mb-4">
           In Their Words
         </p>
-        <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[1.1]">
+        <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl">
           Stories from those<br />who lived them
         </h2>
       </div>
 
-      {/* Locked height container (prevents page jumping) */}
+      {/* Locked height container */}
       <div className="max-w-3xl mx-auto relative min-h-[280px] md:min-h-[320px] flex items-center justify-center">
-        <AnimatePresence mode="wait">
+
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute w-full"
+            custom={direction}
+            initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, info) => {
+              if (info.offset.x < -50) paginate(1);
+              if (info.offset.x > 50) paginate(-1);
+            }}
+            className="absolute w-full cursor-grab active:cursor-grabbing"
           >
-            {/* Review text */}
             <p className="font-narrative text-parchment/70 text-lg md:text-xl lg:text-2xl leading-relaxed italic mb-10">
               “{t.review}”
             </p>
 
-            {/* Couple info */}
             <div className="flex flex-col items-center gap-1">
               <div className="w-8 h-px bg-champagne/30 mb-4" />
               <p className="font-display italic text-parchment text-xl md:text-2xl">
@@ -88,6 +96,47 @@ export default function Testimonials() {
             </div>
           </motion.div>
         </AnimatePresence>
+      </div>
+
+      {/* Controls */}
+      <div className="flex items-center justify-center gap-8 mt-14">
+
+        {/* Left */}
+        <button
+          onClick={() => paginate(-1)}
+          className="text-parchment/30 hover:text-champagne transition duration-500"
+        >
+          ←
+        </button>
+
+        {/* Dots */}
+        <div className="flex gap-3">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setDirection(i > current ? 1 : -1);
+                setCurrent(i);
+              }}
+            >
+              <span
+                className={`block transition-all duration-500 ${
+                  i === current
+                    ? "w-6 h-px bg-champagne"
+                    : "w-2 h-2 bg-parchment/20 rounded-full"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+
+        {/* Right */}
+        <button
+          onClick={() => paginate(1)}
+          className="text-parchment/30 hover:text-champagne transition duration-500"
+        >
+          →
+        </button>
       </div>
     </section>
   );
