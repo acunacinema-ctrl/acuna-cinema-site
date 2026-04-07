@@ -49,8 +49,7 @@ export default function BehindTheLens() {
         </h1>
 
         <p className="font-narrative text-parchment/70 text-lg md:text-xl max-w-2xl">
-          The candid between-moments. Laughter before the ceremony. Tears no one planned for.
-          This is where the unguarded truth of each day lives.
+          Working with us is easy, natural, and completely centered around you. You get to be present; will take care of the rest. 
         </p>
       </section>
 
