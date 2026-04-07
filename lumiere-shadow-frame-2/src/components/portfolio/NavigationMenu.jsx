@@ -114,10 +114,10 @@ export default function NavigationMenu() {
                   Get in touch
                 </p>
                 <a
-                  href="mailto:hello@acunacinema.com"
+                  href="mailto:acunacinema@gmail.com"
                   className="font-narrative text-parchment/60 hover:text-champagne transition-colors text-sm md:text-base"
                 >
-                  hello@acunacinema.com
+                  acunacinema@gmail.com
                 </a>
               </div>
             </div>
