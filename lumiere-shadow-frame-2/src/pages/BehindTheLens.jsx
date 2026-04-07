@@ -1,3 +1,9 @@
+import pic1 from "../pic1.JPG";
+import pic2 from "../pic2.JPG";
+import pic3 from "../pic3.JPG";
+import pic4 from "../pic4.JPG";
+import pic5 from "../pic5.jpg";
+import pic6 from "../pic6.jpg";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavigationMenu from "../components/portfolio/NavigationMenu";
@@ -5,13 +11,7 @@ import Footer from "../components/portfolio/Footer";
 import { X } from "lucide-react";
 
 const photos = [
-  "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800",
-  "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
-  "https://images.unsplash.com/photo-1529636798458-92182e662485?w=800",
-  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800",
-  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800",
-  "https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=800",
-];
+  pic1, pic2, pic3, pic4, pic5, pic6];
 
 const testimonials = [
   {
