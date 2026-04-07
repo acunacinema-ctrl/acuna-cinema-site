@@ -1,3 +1,4 @@
+import BehindTheLens from './pages/BehindTheLens';
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
@@ -71,6 +72,7 @@ const AuthenticatedApp = () => {
       <Route path="/LocationAdmin" element={<LocationAdmin />} />
       <Route path="/venue/:slug" element={<VenuePage />} />
       <Route path="/location/:slug" element={<LocationPage />} />
+      <Route path="/BehindTheLens" element={<BehindTheLens />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
