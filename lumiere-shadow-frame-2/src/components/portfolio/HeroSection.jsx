@@ -46,7 +46,7 @@ export default function HeroSection({ heroImage }) {
       )}
 
       {/* Bottom overlay with studio info */}
-      <div className="absolute bottom-0 left-0 right-0 z-[3] bg-gradient-to-t from-obsidian/90 via-obsidian/40 to-transparent pt-32 pb-44 md:pb-56 px-6 md:px-12">
+      <div className="absolute top-[32%] left-0 right-0 z-[3] px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
