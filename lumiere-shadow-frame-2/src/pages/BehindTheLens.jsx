@@ -15,6 +15,11 @@ const photos = [
 
 const testimonials = [
   {
+    couple: "Erin & Luke",
+    location: "Marshall, Michigan · 2026",
+    text: "David is fantastic! He brought my vision to life and made the process so simple. Thank you for capturing all the special moments: getting ready, vows, speeches and interviews of family. It truly is so special and has me and Luke in tears. Also Syed is amazing too! All around great people.",
+  },
+  {
     couple: "Anna & Chris",
     location: "Saline, Michigan · 2025",
     text: "Davíd has a gift for finding the moments you didn’t even know were happening. We felt like ourselves, not performers.",
@@ -49,7 +54,7 @@ export default function BehindTheLens() {
         </h1>
 
         <p className="font-narrative text-parchment/70 text-lg md:text-xl max-w-2xl">
-          Working with us is easy, natural, and completely centered around you. You get to be present; will take care of the rest. 
+          Working with us is easy, natural, and completely centered around you. You get to be present; we'll take care of the rest. 
         </p>
       </section>
 
@@ -64,9 +69,10 @@ export default function BehindTheLens() {
               onClick={() => setSelected(src)}
             >
               <img
-                src={src}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
-              />
+  src={src}
+  alt="Wedding moment"
+  className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+/>
             </motion.div>
           ))}
         </div>
