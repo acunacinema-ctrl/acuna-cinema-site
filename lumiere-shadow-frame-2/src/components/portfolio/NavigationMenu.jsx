@@ -10,6 +10,11 @@ const navItems = [
   { label: 'Services', href: '#services' },
   { label: 'The Journal', href: '/Journal', isPage: true },
   { label: 'Contact', href: '#contact' },
+  {
+  label: "Behind The Lens",
+  href: "/behind-the-lens",
+  isPage: true
+}
 ];
 
 export default function NavigationMenu() {
