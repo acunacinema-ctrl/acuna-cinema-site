@@ -1,8 +1,10 @@
+import heroDesktop from "../../herolandscapemain.jpg";
+import heroMobile from "../../heroportraitmain.jpg";
 import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-export default function HeroSection({ heroImage }) {
+export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -15,11 +17,17 @@ export default function HeroSection({ heroImage }) {
     <section className="relative w-full h-screen overflow-hidden" aria-label="Hero">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="A bride walking through an ancient stone corridor with dramatic cinematic lighting"
-          className="w-full h-full object-cover object-[25%_center] md:object-left"
-        />
+  <picture className="w-full h-full block">
+  {/* Mobile */}
+  <source media="(max-width: 768px)" srcSet={heroMobile} />
+
+  {/* Desktop */}
+  <img
+    src={heroDesktop}
+    alt="A bride walking through an ancient stone corridor with dramatic cinematic lighting"
+    className="w-full h-full object-cover object-center md:object-left"
+  />
+</picture>
       </div>
 
       {/* Film grain overlay */}
