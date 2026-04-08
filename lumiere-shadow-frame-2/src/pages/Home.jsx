@@ -10,7 +10,6 @@ import Footer from '../components/portfolio/Footer';
 import myPhoto from '../me.png';
 import Testimonials from "../components/Testimonials";
 
-const HERO_IMAGE = 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/650c6366d_ChatGPTImageJan232026at06_31_22PM.png';
 const PORTRAIT_IMAGE = myPhoto;
 
 const PORTFOLIO_IMAGES = [
@@ -40,7 +39,7 @@ export default function Home() {
   return (
     <div className="bg-background min-h-screen overflow-x-hidden">
       <NavigationMenu />
-      <HeroSection heroImage={HERO_IMAGE} />
+      <HeroSection />
       <PortfolioGrid images={PORTFOLIO_IMAGES} />
       <FilmsSection />
       <AboutSection portraitImage={PORTRAIT_IMAGE} />
