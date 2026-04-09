@@ -20,12 +20,14 @@ function toPreviewUrl(url) {
   return null;
 }
 
-export default function FilmCard({ film, index }) {
+export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
   const videoRef = useRef(null);
+  const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const isActive = isMobile ? activeIndex === index : isHovered;
 
   const isVimeo = !!film.filmUrl;
   const previewUrl = toPreviewUrl(film.filmUrl);
@@ -33,6 +35,22 @@ export default function FilmCard({ film, index }) {
   useEffect(() => {
     setIsMobile('ontouchstart' in window || window.innerWidth < 768);
   }, []);
+  useEffect(() => {
+  if (!isMobile) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setActiveIndex(index);
+      }
+    },
+    { threshold: 0.6 }
+  );
+
+  if (ref.current) observer.observe(ref.current);
+
+  return () => observer.disconnect();
+}, [index, isMobile]);
 
   const handleEnter = () => {
     if (isMobile) return;
@@ -78,7 +96,8 @@ export default function FilmCard({ film, index }) {
   return (
     <>
       <motion.div
-        className="group relative cursor-pointer"
+  ref={ref}
+  className="group relative cursor-pointer"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -100,7 +119,7 @@ export default function FilmCard({ film, index }) {
             src={film.cover}
             alt={`${film.title} - wedding film cover`}
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-              isHovered && !isVimeo ? 'scale-105 opacity-0' : isHovered ? 'scale-105' : 'scale-100 opacity-100'
+              isActive && !isVimeo ? 'scale-105 opacity-0' : isActive ? 'scale-105' : 'scale-100 opacity-100'
             }`}
           />
 
@@ -114,15 +133,15 @@ export default function FilmCard({ film, index }) {
               loop
               preload="metadata"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                isHovered ? 'opacity-100' : 'opacity-0'
+                isActive ? 'opacity-100' : 'opacity-0'
               }`}
             />
           )}
 
           {/* Vimeo background preview iframe */}
           {isVimeo && previewUrl && (
-            <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-              {isHovered && (
+            <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+              {isActive && (
                 <iframe
                   src={previewUrl}
                   className="absolute w-[300%] h-[300%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -141,7 +160,7 @@ export default function FilmCard({ film, index }) {
 
           {/* "Watch Full Film" text — appears on hover */}
           <AnimatePresence>
-            {isHovered && (
+            {isActive && (
               <motion.div
                 className="absolute inset-0 z-20 flex flex-col items-center justify-center"
                 initial={{ opacity: 0 }}
@@ -180,13 +199,13 @@ export default function FilmCard({ film, index }) {
 
           {/* Corner brackets */}
           <div className="absolute top-4 left-4 z-20 pointer-events-none">
-            <div className={`transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
               <div className="w-4 h-px bg-champagne" />
               <div className="w-px h-4 bg-champagne" />
             </div>
           </div>
           <div className="absolute top-4 right-4 z-20 pointer-events-none">
-            <div className={`flex flex-col items-end transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`flex flex-col items-end transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
               <div className="w-4 h-px bg-champagne" />
               <div className="w-px h-4 bg-champagne ml-auto" />
             </div>
@@ -198,7 +217,7 @@ export default function FilmCard({ film, index }) {
           <div className="flex items-start justify-between">
             <div>
               <h3 className={`font-display italic font-light text-xl md:text-2xl leading-tight transition-colors duration-500 ${
-                isHovered ? 'text-champagne' : 'text-parchment'
+                isActive ? 'text-champagne' : 'text-parchment'
               }`}>
                 {film.title}
               </h3>
