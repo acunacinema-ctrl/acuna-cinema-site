@@ -7,7 +7,7 @@ import AboutSection from '../components/portfolio/AboutSection';
 import ServicesSection from '../components/portfolio/ServicesSection';
 import ContactSection from '../components/portfolio/ContactSection';
 import Footer from '../components/portfolio/Footer';
-import myPhoto from '../me.png';
+import myPhoto from '../m1.jpg';
 import Testimonials from "../components/Testimonials";
 
 const PORTRAIT_IMAGE = myPhoto;
