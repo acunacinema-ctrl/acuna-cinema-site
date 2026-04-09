@@ -54,7 +54,7 @@ export default function HeroSection() {
       )}
 
       {/* Bottom overlay with studio info */}
-      <div className="absolute top-[45%] md:top-[32%] left-0 right-0 z-[3] px-6 md:px-12">
+      <div className="absolute top-[48%] md:top-[32%] left-0 right-0 z-[3] px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
