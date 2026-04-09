@@ -40,8 +40,8 @@ export default function Home() {
     <div className="bg-background min-h-screen overflow-x-hidden">
       <NavigationMenu />
       <HeroSection />
-      <PortfolioGrid images={PORTFOLIO_IMAGES} />
       <FilmsSection />
+      <PortfolioGrid images={PORTFOLIO_IMAGES} />
       <AboutSection portraitImage={PORTRAIT_IMAGE} />
       <ServicesSection />
       <Testimonials />
