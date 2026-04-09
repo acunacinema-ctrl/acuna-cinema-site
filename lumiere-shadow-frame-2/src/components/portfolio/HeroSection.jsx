@@ -1,5 +1,5 @@
 import heroDesktop from "../../herolandscapemain.jpg";
-import heroMobile from "../../heroportraitmain.jpg";
+import heroMobile from "../../portrait7.jpg";
 import React, { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
