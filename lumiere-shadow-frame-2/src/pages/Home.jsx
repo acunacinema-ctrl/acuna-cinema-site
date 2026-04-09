@@ -9,30 +9,39 @@ import ContactSection from '../components/portfolio/ContactSection';
 import Footer from '../components/portfolio/Footer';
 import myPhoto from '../m1.jpg';
 import Testimonials from "../components/Testimonials";
+import AR1 from '../assets/images/AR1.png';
+import AR2 from '../assets/images/AR2.png';
+import AR3 from '../assets/images/AR3.png';
+import AR4 from '../assets/images/AR4.png';
+
+import CD1 from '../assets/images/CD1.png';
+import CD2 from '../assets/images/CD2.png';
+import CD3 from '../assets/images/CD3.png';
+import CD4 from '../assets/images/CD4.png';
+
+import RM1 from '../assets/images/RM1.png';
+import RM2 from '../assets/images/RM2.jpg';
+import RM3 from '../assets/images/RM3.png';
+import RM4 from '../assets/images/RM4.png';
 
 const PORTRAIT_IMAGE = myPhoto;
 
 const PORTFOLIO_IMAGES = [
-  {
-    src: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/6ffe0cdc3_generated_10d79496.png',
-    alt: 'Extreme close-up of delicate bridal lace veil and antique pearl jewelry in dramatic chiaroscuro light',
-  },
-  {
-    src: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/d7eee4470_generated_88c8d672.png',
-    alt: 'A couple as silhouettes walking through an Italian countryside vineyard at golden hour',
-  },
-  {
-    src: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/1b438ad8b_generated_91916937.png',
-    alt: 'Intimate close-up of hands intertwined with wedding bands during ceremony',
-  },
-  {
-    src: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/58fae338d_generated_27cac89b.png',
-    alt: 'Bride descending a grand marble staircase in a historic European palace with dramatic side lighting',
-  },
-  {
-    src: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69af8d2c4b2e24d43b5fa37a/1219f7e70_generated_b5456f49.png',
-    alt: 'First dance in a grand ballroom, couple embracing in warm spotlight surrounded by candlelight',
-  },
+  { src: AR1, alt: 'Artistic bridal portrait' },
+  { src: CD1, alt: 'Candid wedding moment' },
+  { src: RM1, alt: 'Romantic portrait' },
+
+  { src: AR2, alt: 'Bride in soft natural light' },
+  { src: CD2, alt: 'Couple during ceremony' },
+  { src: RM2, alt: 'Golden hour couple' },
+
+  { src: AR3, alt: 'Editorial wedding detail' },
+  { src: CD3, alt: 'Emotional exchange' },
+  { src: RM3, alt: 'Intimate connection' },
+
+  { src: AR4, alt: 'Elegant bridal composition' },
+  { src: CD4, alt: 'Reception atmosphere' },
+  { src: RM4, alt: 'Final cinematic frame' },
 ];
 
 export default function Home() {
