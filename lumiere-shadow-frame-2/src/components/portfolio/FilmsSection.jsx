@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FilmCard from './FilmCard';
 
@@ -27,6 +27,7 @@ const films = [
 ];
 
 export default function FilmsSection() {
+  const [activeIndex, setActiveIndex] = useState(null);
   return (
     <section id="films" className="px-6 md:px-12 lg:px-20 py-24 md:py-40" aria-label="Films">
       <motion.div
@@ -45,9 +46,15 @@ export default function FilmsSection() {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-        {films.map((film, i) => (
-          <FilmCard key={film.title} film={film} index={i} />
-        ))}
+       {films.map((film, i) => (
+  <FilmCard
+    key={film.title}
+    film={film}
+    index={i}
+    activeIndex={activeIndex}
+    setActiveIndex={setActiveIndex}
+  />
+))}
       </div>
 
       <motion.p
