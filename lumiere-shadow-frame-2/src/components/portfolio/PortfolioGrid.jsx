@@ -16,7 +16,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
     return () => observer.disconnect();
   }, []);
 
-  // Safety guard
   if (!images || images.length === 0) return null;
 
   const nextImage = () => {
@@ -29,7 +28,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  // Swipe support
   const handleTouchStart = (e) => {
     setTouchStartX(e.touches[0].clientX);
   };
@@ -39,8 +37,8 @@ function PortfolioImage({ images = [], alt, className = '' }) {
 
     const diff = touchStartX - e.changedTouches[0].clientX;
 
-    if (diff > 50) nextImage(); // swipe left
-    if (diff < -50) prevImage(); // swipe right
+    if (diff > 50) nextImage();
+    if (diff < -50) prevImage();
 
     setTouchStartX(null);
   };
@@ -56,7 +54,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      {/* Image */}
       <AnimatePresence mode="wait">
         <motion.img
           key={index}
@@ -71,7 +68,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
         />
       </AnimatePresence>
 
-      {/* Progress dots */}
       {images.length > 1 && (
         <div className="absolute bottom-4 left-4 flex gap-1">
           {images.map((_, i) => (
@@ -85,7 +81,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
         </div>
       )}
 
-      {/* CTA */}
       {images.length > 1 && (
         <button
           onClick={nextImage}
@@ -96,7 +91,6 @@ function PortfolioImage({ images = [], alt, className = '' }) {
         </button>
       )}
 
-      {/* Hover overlay */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-500" />
     </motion.div>
   );
@@ -105,6 +99,7 @@ function PortfolioImage({ images = [], alt, className = '' }) {
 export default function PortfolioGrid({ images }) {
   return (
     <section id="portfolio" className="px-6 md:px-12 lg:px-20 py-24 md:py-40" aria-label="Portfolio">
+      
       <motion.div
         className="mb-16 md:mb-24 md:ml-[8%]"
         initial={{ opacity: 0, y: 30 }}
@@ -115,22 +110,25 @@ export default function PortfolioGrid({ images }) {
         <p className="font-interface text-[10px] md:text-xs tracking-editorial uppercase text-champagne mb-4">
           Selected Works
         </p>
+
         <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[0.95]">
           A curation of<br />timeless moments
         </h2>
+
+        {/* NEW directional text */}
+        <p className="font-interface text-[10px] tracking-editorial uppercase text-parchment/40 mt-6">
+          Swipe to view more
+        </p>
       </motion.div>
 
-      {/* Updated grid for 3 couples */}
       <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8">
         
-        {/* Large left */}
         <PortfolioImage
           images={images[0]?.images}
           alt={images[0]?.alt}
           className="col-span-12 md:col-span-7 aspect-[4/5] md:aspect-[3/4]"
         />
 
-        {/* Right stack */}
         <div className="col-span-12 md:col-span-5 flex flex-col gap-4 md:gap-6 lg:gap-8">
           <PortfolioImage
             images={images[1]?.images}
