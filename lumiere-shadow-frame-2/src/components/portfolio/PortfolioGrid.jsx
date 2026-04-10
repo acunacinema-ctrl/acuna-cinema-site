@@ -1,40 +1,103 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-function PortfolioImage({ src, alt, aspect, className = '' }) {
+function PortfolioImage({ images = [], alt, className = '' }) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-        } else {
-          setInView(false);
-        }
-      },
+      ([entry]) => setInView(entry.isIntersecting),
       { threshold: 0.3, rootMargin: '-10% 0px -10% 0px' }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
+  // Safety guard
+  if (!images || images.length === 0) return null;
+
+  const nextImage = () => {
+    if (images.length <= 1) return;
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    if (images.length <= 1) return;
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Swipe support
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+
+    const diff = touchStartX - e.changedTouches[0].clientX;
+
+    if (diff > 50) nextImage(); // swipe left
+    if (diff < -50) prevImage(); // swipe right
+
+    setTouchStartX(null);
+  };
+
   return (
     <motion.div
       ref={ref}
-      className={`overflow-hidden ${className}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className={`relative overflow-hidden group ${className}`}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <img
-        src={src}
-        alt={alt}
-        className={`portfolio-image w-full h-full object-cover ${inView ? 'in-view' : ''}`}
-        loading="lazy"
-      />
+      {/* Image */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={images?.[index]}
+          alt={alt}
+          className={`portfolio-image w-full h-full object-cover ${inView ? 'in-view' : ''}`}
+          loading="lazy"
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -40, opacity: 0 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+        />
+      </AnimatePresence>
+
+      {/* Progress dots */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-4 flex gap-1">
+          {images.map((_, i) => (
+            <div
+              key={i}
+              className={`h-[2px] w-4 transition-all duration-300 ${
+                i === index ? 'bg-champagne' : 'bg-champagne/30'
+              }`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* CTA */}
+      {images.length > 1 && (
+        <button
+          onClick={nextImage}
+          className="absolute bottom-4 right-4 flex items-center gap-2 text-[10px] tracking-editorial uppercase text-parchment/70 hover:text-champagne transition-all duration-300"
+        >
+          <span className="font-interface">View More</span>
+          <span className="font-display italic text-lg">›</span>
+        </button>
+      )}
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-500" />
     </motion.div>
   );
 }
@@ -57,52 +120,30 @@ export default function PortfolioGrid({ images }) {
         </h2>
       </motion.div>
 
-      {/* Asymmetric masonry grid */}
+      {/* Updated grid for 3 couples */}
       <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8">
-        {/* Row 1 */}
+        
+        {/* Large left */}
         <PortfolioImage
-          src={images[0]?.src}
+          images={images[0]?.images}
           alt={images[0]?.alt}
           className="col-span-12 md:col-span-7 aspect-[4/5] md:aspect-[3/4]"
         />
+
+        {/* Right stack */}
         <div className="col-span-12 md:col-span-5 flex flex-col gap-4 md:gap-6 lg:gap-8">
           <PortfolioImage
-            src={images[1]?.src}
+            images={images[1]?.images}
             alt={images[1]?.alt}
             className="aspect-[16/9]"
           />
-
-        </div>
-
-        {/* Row 2 */}
-        <div className="col-span-12 md:col-span-4 md:col-start-2 flex flex-col justify-end">
-          <motion.p
-            className="font-narrative text-parchment/40 text-sm md:text-base leading-relaxed mb-8 hidden md:block"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            Every frame is a fragment of eternity — a whisper between two souls, preserved in light and shadow.
-          </motion.p>
           <PortfolioImage
-            src={images[2]?.src}
+            images={images[2]?.images}
             alt={images[2]?.alt}
-            className="aspect-square"
+            className="aspect-[3/4]"
           />
         </div>
-        <PortfolioImage
-          src={images[3]?.src}
-          alt={images[3]?.alt}
-          className="col-span-12 md:col-span-6 md:col-start-7 aspect-[3/4]"
-        />
 
-        {/* Row 3 */}
-        <PortfolioImage
-          src={images[4]?.src}
-          alt={images[4]?.alt}
-          className="col-span-12 aspect-[16/9] md:aspect-[21/9]"
-        />
       </div>
     </section>
   );
