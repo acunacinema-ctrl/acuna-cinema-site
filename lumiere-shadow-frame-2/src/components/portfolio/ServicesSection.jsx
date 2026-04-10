@@ -6,30 +6,30 @@ const services = [
     title: 'Foundation Collection',
     description: 'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
     details: 'Documentary wedding film (ceremony + key moments)\nProfessional audio coverage',
-    nudge: 'Ideal for intimate celebrations or couples who value simplicity.',
-    pricing: 'Starting at $1,800',
+    nudge: 'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
+    pricing: 'Investment begins at $1,800',
   },
   {
     title: 'Essential Story Collection',
     description: 'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
     details: '8 hours of coverage\n5–7 minute cinematic highlight film\nFull documentary edit (ceremony + speeches)\nTeaser film (30–60 seconds)',
-    nudge: 'A complete and timeless way to relive your wedding day.',
-    pricing: 'Starting at $2,400',
+    nudge: 'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
+    pricing: 'Investment begins at $2,400',
   },
   {
     title: 'Signature Collection',
     subtitle: 'Most Popular',
-    description: 'A cinematic, story-driven experience crafted to capture your day with depth, emotion, and artistry — in both film and photography.',
+    description: 'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
     details: '9 hours of coverage\nSecond creative professional (photo coverage included)\n7–10 minute heirloom wedding film\nTeaser film (30–60 seconds)\nFull documentary edit\n200 professionally edited photos',
-    nudge: 'For couples who want their story captured fully — not just seen, but felt.',
-    pricing: 'Starting at $3,600',
+    nudge: 'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
+    pricing: 'Investment begins at $3,600',
   },
   {
     title: 'Luxury Collection',
-    description: 'An elevated, all-encompassing experience designed to capture every moment with intention, precision, and artistry.',
+    description: 'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
     details: '10 hours of coverage\n3 creative professionals\n10–15 minute heirloom film\nTeaser film\nFull documentary edit\n300 professionally edited photos\nPriority delivery',
-    nudge: 'For couples who want nothing missed and every moment preserved beautifully.',
-    pricing: 'Starting at $5,000',
+    nudge: 'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
+    pricing: 'Investment begins at $5,000',
   },
 ];
 
@@ -86,12 +86,6 @@ export default function ServicesSection() {
               )}
             </div>
 
-            {service.pricing && (
-              <p className="font-display italic text-parchment text-xl mb-5">
-                {service.pricing}
-              </p>
-            )}
-
             <p className="font-narrative text-parchment/45 text-sm leading-relaxed mb-8">
               {service.description}
             </p>
@@ -108,6 +102,12 @@ export default function ServicesSection() {
             {service.nudge && (
               <p className="font-narrative text-parchment/25 text-xs leading-relaxed mt-6 italic">
                 {service.nudge}
+              </p>
+            )}
+
+            {service.pricing && (
+              <p className="font-display italic text-parchment text-xl mt-6">
+                {service.pricing}
               </p>
             )}
           </motion.div>
