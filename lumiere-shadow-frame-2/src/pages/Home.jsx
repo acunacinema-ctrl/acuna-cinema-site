@@ -27,21 +27,18 @@ import RM4 from '../assets/images/RM4.png';
 const PORTRAIT_IMAGE = myPhoto;
 
 const PORTFOLIO_IMAGES = [
-  { src: AR1, alt: 'Artistic bridal portrait' },
-  { src: CD1, alt: 'Candid wedding moment' },
-  { src: RM1, alt: 'Romantic portrait' },
-
-  { src: AR2, alt: 'Bride in soft natural light' },
-  { src: CD2, alt: 'Couple during ceremony' },
-  { src: RM2, alt: 'Golden hour couple' },
-
-  { src: AR3, alt: 'Editorial wedding detail' },
-  { src: CD3, alt: 'Emotional exchange' },
-  { src: RM3, alt: 'Intimate connection' },
-
-  { src: AR4, alt: 'Elegant bridal composition' },
-  { src: CD4, alt: 'Reception atmosphere' },
-  { src: RM4, alt: 'Final cinematic frame' },
+  {
+    images: [AR1, AR2, AR3, AR4],
+    alt: 'Abbie & Ryan wedding photo and video at Egypt Valley Country Club in Ada Michigan'
+  },
+  {
+    images: [CD1, CD2, CD3, CD4],
+    alt: 'Cailin & Devin wedding photo and video at The Homestead in Glen Arbor Michigan'
+  },
+  {
+    images: [RM1, RM2, RM3, RM4],
+    alt: 'Rachel & Martin wedding photo and video at The Felt Estate in Holland Michigan'
+  }
 ];
 
 export default function Home() {
