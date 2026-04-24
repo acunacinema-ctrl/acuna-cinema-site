@@ -9,9 +9,12 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     date: '',
-    location: '',
-    message: '',
+    venue: '',
+    priorities: '',
+    budget: '',
+    fun: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -36,9 +39,12 @@ export default function ContactSection() {
         setFormData({
           name: '',
           email: '',
+          phone: '',
           date: '',
-          location: '',
-          message: '',
+          venue: '',
+          priorities: '',
+          budget: '',
+          fun: '',
         });
       } else {
         alert("Something went wrong. Please try again.");
@@ -51,7 +57,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="px-6 md:px-12 lg:px-20 py-24 md:py-40" aria-label="Contact">
+    <section id="contact" className="px-6 md:px-12 lg:px-20 py-24 md:py-40">
       <div className="grid grid-cols-12 gap-8 md:gap-12">
 
         {/* LEFT SIDE */}
@@ -60,19 +66,13 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
         >
-          <p className="font-interface text-[10px] md:text-xs tracking-editorial uppercase text-champagne mb-4">
-            Begin the Conversation
-          </p>
-
-          <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[0.95] mb-8">
-            Let us tell<br />your story
+          <h2 className="text-4xl md:text-6xl mb-6">
+            Let us tell your story
           </h2>
 
-          <p className="font-narrative text-parchment/50 text-base md:text-lg leading-relaxed mb-12">
-            I accept a limited number of commissions each year to ensure that every project receives 
-            the singular attention it deserves. Inquire early to secure your date.
+          <p className="text-white/60">
+            Limited availability each year. Inquire early to secure your date.
           </p>
         </motion.div>
 
@@ -82,22 +82,20 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
         >
 
           {submitted ? (
-            <div className="flex flex-col items-center justify-center py-20 text-center">
-              <p className="font-display italic text-champagne text-3xl mb-4">Thank you</p>
-              <p className="font-narrative text-parchment/50 text-base">
-                Your inquiry has been received. I will be in touch within 48 hours.
+            <div className="text-center py-20">
+              <h3 className="text-3xl mb-4">Thank you</h3>
+              <p className="text-white/60">
+                I’ll be in touch within 48 hours.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
 
               <Input
-                type="text"
-                placeholder="First & Last Name"
+                placeholder="Full Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
@@ -105,41 +103,65 @@ export default function ContactSection() {
 
               <Input
                 type="email"
-                placeholder="Email Address"
+                placeholder="Email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
               />
 
-              <div className="grid grid-cols-2 gap-6">
-                <Input
-                  type="text"
-                  placeholder="Wedding Date"
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                />
-
-                <Input
-                  type="text"
-                  placeholder="Location"
-                  value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                />
-              </div>
-
-              <Textarea
-                placeholder="Tell me about your vision..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              <Input
+                type="tel"
+                placeholder="Phone Number (optional)"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               />
 
-              <Button
-                type="submit"
-                disabled={loading}
-                className="group"
+              <Input
+                placeholder="Wedding Date"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+              />
+
+              <Input
+                placeholder="What venue have you booked or are considering?"
+                value={formData.venue}
+                onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
+              />
+
+              <select
+                value={formData.priorities}
+                onChange={(e) => setFormData({ ...formData, priorities: e.target.value })}
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white"
+                required
               >
+                <option value="">What is most important to you in your wedding films & photos?</option>
+                <option>Cinematic storytelling</option>
+                <option>Emotional moments</option>
+                <option>Documentary coverage</option>
+                <option>Just capturing everything</option>
+              </select>
+
+              <select
+                value={formData.budget}
+                onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white"
+                required
+              >
+                <option value="">What is your estimated budget for Film and/or Photo?</option>
+                <option>$1,500 – $2,500</option>
+                <option>$2,500 – $4,000</option>
+                <option>$4,000+</option>
+              </select>
+
+              <Textarea
+                placeholder="What’s something fun you and your fiancé like to do together? :)"
+                value={formData.fun}
+                onChange={(e) => setFormData({ ...formData, fun: e.target.value })}
+              />
+
+              <Button type="submit" disabled={loading}>
                 {loading ? "Sending..." : "Send Inquiry"}
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2" />
               </Button>
 
             </form>
