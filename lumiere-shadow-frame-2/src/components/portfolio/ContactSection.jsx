@@ -67,12 +67,17 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl mb-6">
+          <p className="font-interface text-[10px] tracking-editorial uppercase text-champagne mb-4">
+            Begin the Conversation
+          </p>
+
+          <h2 className="font-display italic font-light text-parchment text-4xl md:text-6xl leading-[0.95] mb-8">
             Let us tell your story
           </h2>
 
-          <p className="text-white/60">
-            Limited availability each year. Inquire early to secure your date.
+          <p className="font-narrative text-parchment/50 text-base md:text-lg leading-relaxed">
+            I accept a limited number of commissions each year to ensure every couple receives 
+            a film that feels truly personal. Inquire early to secure your date.
           </p>
         </motion.div>
 
@@ -86,9 +91,9 @@ export default function ContactSection() {
 
           {submitted ? (
             <div className="text-center py-20">
-              <h3 className="text-3xl mb-4">Thank you</h3>
-              <p className="text-white/60">
-                I’ll be in touch within 48 hours.
+              <p className="font-display italic text-champagne text-3xl mb-4">Thank you</p>
+              <p className="font-narrative text-parchment/50 text-base">
+                Your inquiry has been received. I will be in touch within 48 hours.
               </p>
             </div>
           ) : (
@@ -111,9 +116,10 @@ export default function ContactSection() {
 
               <Input
                 type="tel"
-                placeholder="Phone Number (optional)"
+                placeholder="Phone Number"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                required
               />
 
               <Input
@@ -128,40 +134,35 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
               />
 
-              <select
+              <Textarea
+                placeholder="What is most important to you in your wedding films & photos?"
                 value={formData.priorities}
                 onChange={(e) => setFormData({ ...formData, priorities: e.target.value })}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white"
+                className="min-h-[100px]"
                 required
-              >
-                <option value="">What is most important to you in your wedding films & photos?</option>
-                <option>Cinematic storytelling</option>
-                <option>Emotional moments</option>
-                <option>Documentary coverage</option>
-                <option>Just capturing everything</option>
-              </select>
+              />
 
-              <select
+              <Input
+                placeholder="Estimated budget for Film and/or Photo"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white"
                 required
-              >
-                <option value="">What is your estimated budget for Film and/or Photo?</option>
-                <option>$1,500 – $2,500</option>
-                <option>$2,500 – $4,000</option>
-                <option>$4,000+</option>
-              </select>
+              />
 
               <Textarea
                 placeholder="What’s something fun you and your fiancé like to do together? :)"
                 value={formData.fun}
                 onChange={(e) => setFormData({ ...formData, fun: e.target.value })}
+                className="min-h-[100px]"
               />
 
-              <Button type="submit" disabled={loading}>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="group w-full border border-parchment/20 text-parchment hover:bg-champagne/10 hover:border-champagne hover:text-champagne transition-all duration-500 py-6"
+              >
                 {loading ? "Sending..." : "Send Inquiry"}
-                <ArrowRight className="ml-2" />
+                <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform" />
               </Button>
 
             </form>
