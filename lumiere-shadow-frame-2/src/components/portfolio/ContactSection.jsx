@@ -38,8 +38,12 @@ export default function ContactSection() {
 
         // 🔥 FIRE META LEAD EVENT
         if (window.fbq) {
-          window.fbq('track', 'Lead');
-        }
+  window.fbq('track', 'Lead', {
+    em: formData.email.trim().toLowerCase(),
+    ph: formData.phone.replace(/\D/g, ''),
+    fn: formData.name.trim().toLowerCase()
+  });
+}
 
         setSubmitted(true);
 
