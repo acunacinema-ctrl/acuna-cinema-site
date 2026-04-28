@@ -35,7 +35,14 @@ export default function ContactSection() {
       });
 
       if (response.ok) {
+
+        // 🔥 FIRE META LEAD EVENT
+        if (window.fbq) {
+          window.fbq('track', 'Lead');
+        }
+
         setSubmitted(true);
+
         setFormData({
           name: '',
           email: '',
@@ -46,6 +53,7 @@ export default function ContactSection() {
           budget: '',
           fun: '',
         });
+
       } else {
         alert("Something went wrong. Please try again.");
       }
