@@ -134,8 +134,8 @@ export default function ServicesSection() {
           <div className="md:col-span-8 space-y-5">
             {[
               { label: 'Additional Coverage', price: '$100/hr' },
-              { label: 'Engagement Film Session', price: '$400' },
-              { label: 'Foundation & Essential Collections Photo Coverage', price: '$500' },
+              { label: 'Engagement Film Session', price: '$500' },
+              { label: 'Foundation & Essential Collections Photo Coverage', price: '$2,000' },
             ].map((item, i) => (
               <div key={i} className="flex items-center justify-between gap-6 border-b border-parchment/8 pb-5 last:border-0 last:pb-0">
                 <div className="flex items-center gap-3">
