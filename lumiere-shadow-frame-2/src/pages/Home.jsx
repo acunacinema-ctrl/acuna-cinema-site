@@ -28,18 +28,61 @@ import RM4 from '../assets/images/RM4.png';
 const PORTRAIT_IMAGE = myPhoto;
 
 const PORTFOLIO_IMAGES = [
-  {
-    images: [AR1, AR2, AR3, AR4],
-    alt: 'Abbie & Ryan wedding photo and video at Egypt Valley Country Club in Ada Michigan'
-  },
-  {
-    images: [CD1, CD2, CD3, CD4],
-    alt: 'Cailin & Devin wedding photo and video at The Homestead in Glen Arbor Michigan'
-  },
-  {
-    images: [RM1, RM2, RM3, RM4],
-    alt: 'Rachel & Martin wedding photo and video at The Felt Estate in Holland Michigan'
-  }
+
+{
+images:[
+{
+src:AR1,
+alt:'Bride and groom portrait at Egypt Valley Country Club wedding in Ada Michigan by Acuna Cinema'
+},
+{
+src:AR2,
+alt:'Bride with wedding florals photographed at Egypt Valley Country Club wedding in Ada Michigan'},
+{
+src:AR3,
+alt:'Luxury wedding getting ready details before ceremony at Egypt Valley Country Club in Ada Michigan'},
+{
+src:AR4,
+alt:'Bride and groom cinematic wedding film coverage by Acuna Cinema'}
+]
+},
+
+{
+images:[
+{
+src:CD1,
+alt:'Luxury wedding floral details photographed by Acuna Cinema in Michigan'},
+{
+src:CD2,
+alt:'Bride and groom first look portrait with Lake Michigan in background photographed in Glen Arbor Michigan'
+},
+{
+src:CD3,
+alt:'Wedding videography coverage at The Homestead wedding venue in Glen Arbor Michigan'},
+{
+src:CD4,
+alt:'Wedding reception first dance photography at The Homestead in Glen Arbor Michigan by Acuna Cinema'
+}
+]
+},
+
+{
+images:[
+{
+src:RM1,
+alt:'Bride and groom portrait at The Felt Estate wedding venue in Holland Michigan'},
+{
+src:RM2,
+alt:'Bride and bridesmaids portrait outside The Felt Estate wedding venue in Holland Michigan'},
+{
+src:RM3,
+alt:'Luxury wedding videography coverage of groom and groomsmen toasting wine at The Felt Estate in Holland Michigan'},
+{
+src:RM4,
+alt:'Bride and groom sharing romantic kiss during Michigan wedding film by Acuna Cinema'}
+]
+}
+
 ];
 
 export default function Home() {
@@ -89,8 +132,8 @@ export default function Home() {
         >
           Creating cinematic wedding films and timeless
           photography for couples throughout Michigan.
-          Serving Grand Rapids, Muskegon, Detroit, Traverse City and
-          destination weddings.
+          Serving Detroit, Grand Rapids, Muskegon,
+          Traverse City and destination weddings.
         </p>
 
       </section>
