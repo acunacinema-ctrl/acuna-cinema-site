@@ -5,14 +5,14 @@ const services = [
   {
     title: 'Foundation Collection',
     description: 'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
-    details: 'Documentary film (ceremony + key moments)\nProfessional audio coverage',
+    details: '6 hours coverage\nDocumentary film',
     nudge: 'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
     pricing: 'Investment begins at $1,800',
   },
   {
     title: 'Essential Story Collection',
     description: 'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
-    details: '8 hours of coverage\nSocial Media Teaser film\nFull documentary film\n5–7 minute cinematic highlight film',
+    details: '8 hours coverage\nSocial Media Teaser film\nFull documentary film\n5–7 minute cinematic highlight film',
     nudge: 'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $2,600',
   },
@@ -20,14 +20,14 @@ const services = [
     title: 'Signature Collection',
     subtitle: 'Most Popular',
     description: 'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
-    details: '9 hours of coverage\n+1 photo-focused professional artist\nSocial Media Teaser film\nFull documentary Film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
+    details: '9 hours coverage\n+1 photo-focused professional artist\nSocial Media Teaser film\nFull documentary Film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
     nudge: 'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
     pricing: 'Investment begins at $4,500',
   },
   {
     title: 'Luxury Collection',
     description: 'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
-    details: '10+ hours of coverage\n+2 photo/video focused professional artists\nSocial Media Teaser film\nFull documentary Film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
+    details: '10+ hours coverage\n+2 photo/video focused professional artists\nSocial Media Teaser film\nFull documentary Film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
     nudge: 'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $7,000',
   },
@@ -53,7 +53,7 @@ export default function ServicesSection() {
           Thoughtfully crafted films and imagery designed to preserve not just how your day looked — but how it felt.
         </p>
         <p className="font-narrative text-parchment/40 text-sm leading-relaxed mt-4">
-          Foundation collection begins at $1,800. Most couples invest between $2,400 – $3,600.
+          Foundation collection begins at $1,800. Most couples invest around $4,000.
         </p>
       </motion.div>
 
