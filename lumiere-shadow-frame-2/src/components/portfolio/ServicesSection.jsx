@@ -12,7 +12,7 @@ const services = [
   {
     title: 'Essential Story Collection',
     description: 'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
-    details: '8 hours of coverage\n5–7 minute cinematic highlight film\nFull documentary edit (ceremony + speeches)\nTeaser film (30–60 seconds)',
+    details: '8 hours of coverage\n5–7 minute cinematic highlight film\nFull documentary edit (ceremony + speeches)\nSocial Media Teaser film',
     nudge: 'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $2,400',
   },
@@ -20,14 +20,14 @@ const services = [
     title: 'Signature Collection',
     subtitle: 'Most Popular',
     description: 'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
-    details: '9 hours of coverage\nSecond creative professional (photo coverage included)\n7–10 minute heirloom wedding film\nTeaser film (30–60 seconds)\nFull documentary edit\n200 professionally edited photos',
+    details: '9 hours of coverage\nSecond professional photo artist\n7–10 minute heirloom wedding film\n Social Media Teaser film\nFull documentary edit\n500 professionally edited photos',
     nudge: 'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
-    pricing: 'Investment begins at $3,600',
+    pricing: 'Investment begins at $4,500',
   },
   {
     title: 'Luxury Collection',
     description: 'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
-    details: '10 hours of coverage\n3 creative professionals\n10–15 minute heirloom film\nTeaser film\nFull documentary edit\n300 professionally edited photos\nPriority delivery',
+    details: '10 hours of coverage\n3 creative professionals\n10–15 minute heirloom film\nSocial Media Teaser film\nFull documentary edit\n800 professionally edited photos\nPriority delivery',
     nudge: 'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $5,000',
   },
@@ -134,8 +134,8 @@ export default function ServicesSection() {
           <div className="md:col-span-8 space-y-5">
             {[
               { label: 'Additional Coverage', price: '$100/hr' },
-              { label: 'Engagement Film Session', price: '$500' },
-              { label: 'Foundation & Essential Collections Photo Coverage', price: '$2,000' },
+              { label: 'Engagement Photo/Film Session', price: '$1,000' },
+              { label: 'Foundation & Essential Collections Photo Coverage', price: '$2,500' },
             ].map((item, i) => (
               <div key={i} className="flex items-center justify-between gap-6 border-b border-parchment/8 pb-5 last:border-0 last:pb-0">
                 <div className="flex items-center gap-3">
