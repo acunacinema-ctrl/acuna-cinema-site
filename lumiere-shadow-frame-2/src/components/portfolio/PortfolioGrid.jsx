@@ -55,17 +55,17 @@ function PortfolioImage({ images = [], alt, className = '' }) {
       transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <AnimatePresence mode="wait">
-        <motion.img
-          key={index}
-          src={images?.[index]}
-          alt={alt}
-          className={`portfolio-image w-full h-full object-cover ${inView ? 'in-view' : ''}`}
-          loading="lazy"
-          initial={{ x: 40, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -40, opacity: 0 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
-        />
+<motion.img
+  key={index}
+  src={images?.[index]?.src || images?.[index]}
+  alt={images?.[index]?.alt || alt}
+  className={`portfolio-image w-full h-full object-cover ${inView ? 'in-view' : ''}`}
+  loading="lazy"
+  initial={{ x: 40, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  exit={{ x: -40, opacity: 0 }}
+  transition={{ duration: 0.5, ease: 'easeInOut' }}
+/>
       </AnimatePresence>
 
       {images.length > 1 && (
