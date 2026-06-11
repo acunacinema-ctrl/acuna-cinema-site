@@ -7,7 +7,7 @@ const services = [
     description: 'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
     details: '6 hours coverage\nDocumentary film',
     nudge: 'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
-    pricing: 'Investment begins at $1,800',
+    pricing: 'Investment begins at $2,000',
   },
   {
     title: 'Essential Story Collection',
