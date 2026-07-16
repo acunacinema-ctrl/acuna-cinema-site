@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FilmCard from './FilmCard';
+import abbyRyanFilmCoverPhoto from '../../assets/images/Abbie Ryan Film Cover Photo.png';
 
 const films = [
   {
@@ -21,7 +22,7 @@ const films = [
     title: 'Abby & Ryan',
     location: 'Grand Rapids, Michigan',
     year: '2025',
-    cover: 'https://media.base44.com/images/public/69af8d2c4b2e24d43b5fa37a/7ecd00f04_3f2ce8f8-4487-4f31-a31b-6b8a2588c21d.png',
+    cover: abbyRyanFilmCoverPhoto,
     filmUrl: 'https://vimeo.com/1186369710?share=copy&fl=sv&fe=ci',
   },
 ];
