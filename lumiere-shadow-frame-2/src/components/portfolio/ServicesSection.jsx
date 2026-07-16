@@ -53,7 +53,7 @@ export default function ServicesSection() {
           Thoughtfully crafted films and imagery designed to preserve not just how your day looked — but how it felt.
         </p>
         <p className="font-narrative text-parchment/40 text-sm leading-relaxed mt-4">
-          Foundation collection begins at $1,800. Most couples invest around $4,000.
+          Foundation collection begins at $2,800. Most couples invest around $3,500 - $4,700.
         </p>
       </motion.div>
 
