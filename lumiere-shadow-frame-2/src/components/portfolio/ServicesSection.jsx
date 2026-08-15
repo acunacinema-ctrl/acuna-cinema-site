@@ -54,17 +54,17 @@ const completeStoryCollections = [
     description:
       'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
     details:
-      '9 hours coverage\n+1 photo-focused professional artist\nSocial Media Teaser film\nFull documentary Film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
+      '9 hours coverage\nLead photographer\nLead videographer\n+1 second videographer\nSocial Media Teaser film\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
     nudge:
       'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
-    pricing: 'Investment begins at $4,500',
+    pricing: 'Investment begins at $5,500',
   },
   {
     title: 'Luxury Collection',
     description:
       'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
     details:
-      '10+ hours coverage\n+2 photo/video focused professional artists\nSocial Media Teaser film\nFull documentary Film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
+      '10+ hours coverage\nLead photographer\n+1 second photographer\nLead videographer\n+1 second videographer\nSocial Media Teaser film\nFull documentary film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
     nudge:
       'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $7,000',
