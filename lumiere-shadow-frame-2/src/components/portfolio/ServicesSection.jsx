@@ -1,7 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const services = [
+const photographyCollections = [
+  {
+    title: 'Classic Collection',
+    description: 'Beautifully considered wedding photography focused on the moments, details, and people that make your day uniquely yours.',
+    details: '8 hours coverage\nLead photographer\n+1 second photographer\n600+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+    nudge: 'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
+    pricing: 'Investment begins at $2,800',
+  },
+  {
+    title: 'Premier Collection',
+    subtitle: 'Most Popular',
+    description: 'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
+    details: '10 hours coverage\nLead photographer\n+1 second photographer\nEngagement photo session\n800+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+    nudge: 'For couples who want a deeper, more complete visual record of their wedding — beautifully photographed from beginning to end.',
+    pricing: 'Investment begins at $4,200',
+  },
+];
+
+const filmCollections = [
   {
     title: 'Foundation Collection',
     description: 'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
@@ -16,6 +34,9 @@ const services = [
     nudge: 'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $2,600',
   },
+];
+
+const completeStoryCollections = [
   {
     title: 'Signature Collection',
     subtitle: 'Most Popular',
@@ -33,9 +54,95 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
+const categories = [
+  {
+    number: '01',
+    title: 'Photography',
+    description: 'For images that preserve every detail.',
+    collections: photographyCollections,
+  },
+  {
+    number: '02',
+    title: 'Cinematic Films',
+    description: 'Stories told in motion.',
+    collections: filmCollections,
+  },
+  {
+    number: '03',
+    title: 'The Complete Story',
+    description: 'Photography and film, thoughtfully considered.',
+    collections: completeStoryCollections,
+  },
+];
+
+function CollectionCard({ collection, index }) {
   return (
-    <section id="services" className="px-6 md:px-12 lg:px-20 py-24 md:py-40" aria-label="Services">
+    <motion.div
+      className="relative flex flex-col p-7 md:p-10 border border-parchment/10 hover:border-champagne/30 transition-colors duration-700"
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.6 }}
+    >
+      {/* Corner accent */}
+      <span className="absolute top-0 left-0 w-6 h-px bg-champagne/40" />
+      <span className="absolute top-0 left-0 w-px h-6 bg-champagne/40" />
+
+      <div className="mb-6">
+        <h3 className="font-display italic font-light text-parchment text-2xl md:text-3xl leading-tight">
+          {collection.title}
+        </h3>
+
+        {collection.subtitle && (
+          <p className="font-narrative text-champagne/60 text-xs leading-relaxed mt-2 italic">
+            {collection.subtitle}
+          </p>
+        )}
+      </div>
+
+      <p className="font-narrative text-parchment/45 text-sm leading-relaxed mb-8">
+        {collection.description}
+      </p>
+
+      <div className="space-y-2">
+        {collection.details.split('\n').map((line, idx) => (
+          <div key={idx} className="flex items-start gap-2">
+            <span className="text-champagne/40 mt-[3px] text-[8px]">—</span>
+            <p className="font-interface text-[10px] tracking-wide text-champagne/50 uppercase leading-relaxed">
+              {line}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {collection.nudge && (
+        <p className="font-narrative text-parchment/25 text-xs leading-relaxed mt-6 italic">
+          {collection.nudge}
+        </p>
+      )}
+
+      {collection.pricing && (
+        <p className="font-display italic text-parchment text-xl mt-6">
+          {collection.pricing}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+
+export default function ServicesSection() {
+  const [openCategory, setOpenCategory] = useState(null);
+
+  const toggleCategory = (index) => {
+    setOpenCategory((current) => (current === index ? null : index));
+  };
+
+  return (
+    <section
+      id="services"
+      className="px-6 md:px-12 lg:px-20 py-24 md:py-40"
+      aria-label="Services"
+    >
+      {/* Section Introduction */}
       <motion.div
         className="mb-16 md:mb-24 md:ml-[8%]"
         initial={{ opacity: 0, y: 30 }}
@@ -46,72 +153,100 @@ export default function ServicesSection() {
         <p className="font-interface text-[10px] md:text-xs tracking-editorial uppercase text-champagne mb-4">
           Offerings
         </p>
-        <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[1.15]">
-          Wedding Films That Let You<br />Relive Every Feeling
+
+        <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[1.05]">
+          Choose how you want<br />your story preserved
         </h2>
+
         <p className="font-narrative text-parchment/60 text-base md:text-lg leading-relaxed mt-6 max-w-xl">
-          Thoughtfully crafted films and imagery designed to preserve not just how your day looked — but how it felt.
+          Thoughtfully crafted photography and films designed to preserve not just how your day looked — but how it felt.
         </p>
+
         <p className="font-narrative text-parchment/40 text-sm leading-relaxed mt-4">
-          Foundation collection begins at $2,000. Most couples invest around $2,800 - $4,800.
+          Collections begin at $2,000. Most couples invest around $2,800 - $4,800.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {services.map((service, i) => (
-          <motion.div
-            key={service.title}
-            className="relative flex flex-col p-8 md:p-10 border border-parchment/10 hover:border-champagne/30 transition-colors duration-700"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.7 }}
-          >
-            {/* Corner accent */}
-            <span className="absolute top-0 left-0 w-6 h-px bg-champagne/40" />
-            <span className="absolute top-0 left-0 w-px h-6 bg-champagne/40" />
+      {/* Collection Chapters */}
+      <div className="max-w-6xl mx-auto">
+        <div className="border-t border-parchment/10">
+          {categories.map((category, index) => {
+            const isOpen = openCategory === index;
 
-            <span className="font-interface text-[10px] tracking-editorial text-champagne/30 mb-8">
-              {String(i + 1).padStart(2, '0')}
-            </span>
+            return (
+              <div
+                key={category.number}
+                className="border-b border-parchment/10"
+              >
+                {/* Chapter Header */}
+                <button
+                  type="button"
+                  onClick={() => toggleCategory(index)}
+                  className="w-full text-left py-8 md:py-10 group"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-5 md:gap-8">
+                    <span className="font-interface text-[10px] md:text-xs tracking-editorial text-champagne/40 shrink-0">
+                      {category.number}
+                    </span>
 
-            <div className="mb-6">
-              <h3 className="font-display italic font-light text-parchment text-2xl md:text-3xl leading-tight">
-                {service.title}
-              </h3>
-              {service.subtitle && (
-                <p className="font-narrative text-parchment/30 text-xs leading-relaxed mt-2 italic">
-                  {service.subtitle}
-                </p>
-              )}
-            </div>
+                    <div className="flex-1">
+                      <h3 className="font-display italic font-light text-parchment text-2xl md:text-4xl lg:text-5xl leading-none group-hover:text-champagne transition-colors duration-500">
+                        {category.title}
+                      </h3>
 
-            <p className="font-narrative text-parchment/45 text-sm leading-relaxed mb-8">
-              {service.description}
-            </p>
+                      <p className="font-narrative text-parchment/35 text-sm md:text-base mt-3">
+                        {category.description}
+                      </p>
+                    </div>
 
-            <div className="mt-auto space-y-2">
-              {service.details.split('\n').map((line, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <span className="text-champagne/40 mt-[3px] text-[8px]">—</span>
-                  <p className="font-interface text-[10px] tracking-wide text-champagne/50 uppercase leading-relaxed">{line}</p>
-                </div>
-              ))}
-            </div>
+                    {/* Plus / Minus */}
+                    <div className="relative w-7 h-7 md:w-8 md:h-8 shrink-0 flex items-center justify-center">
+                      <span
+                        className={`absolute w-4 md:w-5 h-px bg-champagne/60 transition-transform duration-500 ${
+                          isOpen ? 'rotate-0' : 'rotate-0'
+                        }`}
+                      />
+                      <span
+                        className={`absolute w-px h-4 md:h-5 bg-champagne/60 transition-transform duration-500 ${
+                          isOpen ? 'rotate-90' : 'rotate-0'
+                        }`}
+                      />
+                    </div>
+                  </div>
+                </button>
 
-            {service.nudge && (
-              <p className="font-narrative text-parchment/25 text-xs leading-relaxed mt-6 italic">
-                {service.nudge}
-              </p>
-            )}
-
-            {service.pricing && (
-              <p className="font-display italic text-parchment text-xl mt-6">
-                {service.pricing}
-              </p>
-            )}
-          </motion.div>
-        ))}
+                {/* Expanded Collections */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="overflow-hidden"
+                    >
+                      <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 pb-10 md:pb-12 pl-0 md:pl-14"
+                        initial={{ y: -10 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        {category.collections.map((collection, collectionIndex) => (
+                          <CollectionCard
+                            key={collection.title}
+                            collection={collection}
+                            index={collectionIndex}
+                          />
+                        ))}
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Enhancements */}
@@ -131,24 +266,32 @@ export default function ServicesSection() {
               Tailor your selection with thoughtful additions designed to elevate your experience and preserve even more of your story.
             </p>
           </div>
+
           <div className="md:col-span-8 space-y-5">
             {[
               { label: 'Additional Coverage', price: '$100/hr' },
               { label: 'Engagement Photo/Film Session', price: '$1,000' },
               { label: 'Foundation & Essential Collections Photo Coverage', price: '$2,500' },
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-between gap-6 border-b border-parchment/8 pb-5 last:border-0 last:pb-0">
+              <div
+                key={i}
+                className="flex items-center justify-between gap-6 border-b border-parchment/8 pb-5 last:border-0 last:pb-0"
+              >
                 <div className="flex items-center gap-3">
                   <span className="text-champagne/30 text-[8px]">—</span>
-                  <p className="font-narrative text-parchment/70 text-sm md:text-base">{item.label}</p>
+                  <p className="font-narrative text-parchment/70 text-sm md:text-base">
+                    {item.label}
+                  </p>
                 </div>
-                <p className="font-display italic text-parchment/60 text-base whitespace-nowrap">{item.price}</p>
+
+                <p className="font-display italic text-parchment/60 text-base whitespace-nowrap">
+                  {item.price}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </motion.div>
-
     </section>
   );
 }
