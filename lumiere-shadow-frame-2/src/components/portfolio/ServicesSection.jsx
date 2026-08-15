@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const photographyCollections = [
   {
     title: 'Classic Collection',
-    description: 'Beautifully considered wedding photography focused on the moments, details, and people that make your day uniquely yours.',
-    details: '8 hours coverage\nLead photographer\n+1 second photographer\n600+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
-    nudge: 'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
+    description:
+      'Beautifully considered wedding photography focused on the moments, details, and people that make your day uniquely yours.',
+    details:
+      '8 hours coverage\nLead photographer\n+1 second photographer\n600+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+    nudge:
+      'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
     pricing: 'Investment begins at $2,800',
   },
   {
     title: 'Premier Collection',
     subtitle: 'Most Popular',
-    description: 'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
-    details: '10 hours coverage\nLead photographer\n+1 second photographer\nEngagement photo session\n800+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
-    nudge: 'For couples who want a deeper, more complete visual record of their wedding — beautifully photographed from beginning to end.',
+    description:
+      'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
+    details:
+      '10 hours coverage\nLead photographer\n+1 second photographer\nEngagement photo session\n800+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+    nudge:
+      'For couples who want a deeper, more complete visual record of their wedding — beautifully photographed from beginning to end.',
     pricing: 'Investment begins at $4,200',
   },
 ];
@@ -22,16 +28,21 @@ const photographyCollections = [
 const filmCollections = [
   {
     title: 'Foundation Collection',
-    description: 'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
+    description:
+      'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
     details: '6 hours coverage\nDocumentary film',
-    nudge: 'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
+    nudge:
+      'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
     pricing: 'Investment begins at $2,000',
   },
   {
     title: 'Essential Story Collection',
-    description: 'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
-    details: '8 hours coverage\nSocial Media Teaser film\nFull documentary film\n5–7 minute cinematic highlight film',
-    nudge: 'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
+    description:
+      'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
+    details:
+      '8 hours coverage\nSocial Media Teaser film\nFull documentary film\n5–7 minute cinematic highlight film',
+    nudge:
+      'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $2,600',
   },
 ];
@@ -40,16 +51,22 @@ const completeStoryCollections = [
   {
     title: 'Signature Collection',
     subtitle: 'Most Popular',
-    description: 'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
-    details: '9 hours coverage\n+1 photo-focused professional artist\nSocial Media Teaser film\nFull documentary Film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
-    nudge: 'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
+    description:
+      'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
+    details:
+      '9 hours coverage\n+1 photo-focused professional artist\nSocial Media Teaser film\nFull documentary Film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
+    nudge:
+      'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
     pricing: 'Investment begins at $4,500',
   },
   {
     title: 'Luxury Collection',
-    description: 'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
-    details: '10+ hours coverage\n+2 photo/video focused professional artists\nSocial Media Teaser film\nFull documentary Film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
-    nudge: 'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
+    description:
+      'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
+    details:
+      '10+ hours coverage\n+2 photo/video focused professional artists\nSocial Media Teaser film\nFull documentary Film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
+    nudge:
+      'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $7,000',
   },
 ];
@@ -81,7 +98,10 @@ function CollectionCard({ collection, index }) {
       className="relative flex flex-col p-7 md:p-10 border border-parchment/10 hover:border-champagne/30 transition-colors duration-700"
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.6 }}
+      transition={{
+        delay: index * 0.1,
+        duration: 0.6,
+      }}
     >
       {/* Corner accent */}
       <span className="absolute top-0 left-0 w-6 h-px bg-champagne/40" />
@@ -106,7 +126,10 @@ function CollectionCard({ collection, index }) {
       <div className="space-y-2">
         {collection.details.split('\n').map((line, idx) => (
           <div key={idx} className="flex items-start gap-2">
-            <span className="text-champagne/40 mt-[3px] text-[8px]">—</span>
+            <span className="text-champagne/40 mt-[3px] text-[8px]">
+              —
+            </span>
+
             <p className="font-interface text-[10px] tracking-wide text-champagne/50 uppercase leading-relaxed">
               {line}
             </p>
@@ -131,9 +154,23 @@ function CollectionCard({ collection, index }) {
 
 export default function ServicesSection() {
   const [openCategory, setOpenCategory] = useState(null);
+  const chaptersRef = useRef(null);
 
   const toggleCategory = (index) => {
-    setOpenCategory((current) => (current === index ? null : index));
+    setOpenCategory((current) => {
+      const isClosing = current === index;
+
+      if (!isClosing) {
+        requestAnimationFrame(() => {
+          chaptersRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        });
+      }
+
+      return isClosing ? null : index;
+    });
   };
 
   return (
@@ -155,20 +192,26 @@ export default function ServicesSection() {
         </p>
 
         <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[1.05]">
-          Choose how you want<br />your story preserved
+          Choose how you want
+          <br />
+          your story preserved
         </h2>
 
         <p className="font-narrative text-parchment/60 text-base md:text-lg leading-relaxed mt-6 max-w-xl">
-          Thoughtfully crafted photography and films designed to preserve not just how your day looked — but how it felt.
+          Thoughtfully crafted photography and films designed to preserve not
+          just how your day looked — but how it felt.
         </p>
 
         <p className="font-narrative text-parchment/40 text-sm leading-relaxed mt-4">
-          Collections begin at $2,000. Most couples invest around $2,800 - $4,800.
+          Most couples invest between $2,800 - $4,800.
         </p>
       </motion.div>
 
       {/* Collection Chapters */}
-      <div className="max-w-6xl mx-auto">
+      <div
+        ref={chaptersRef}
+        className="max-w-6xl mx-auto scroll-mt-20 md:scroll-mt-24"
+      >
         <div className="border-t border-parchment/10">
           {categories.map((category, index) => {
             const isOpen = openCategory === index;
@@ -202,11 +245,8 @@ export default function ServicesSection() {
 
                     {/* Plus / Minus */}
                     <div className="relative w-7 h-7 md:w-8 md:h-8 shrink-0 flex items-center justify-center">
-                      <span
-                        className={`absolute w-4 md:w-5 h-px bg-champagne/60 transition-transform duration-500 ${
-                          isOpen ? 'rotate-0' : 'rotate-0'
-                        }`}
-                      />
+                      <span className="absolute w-4 md:w-5 h-px bg-champagne/60" />
+
                       <span
                         className={`absolute w-px h-4 md:h-5 bg-champagne/60 transition-transform duration-500 ${
                           isOpen ? 'rotate-90' : 'rotate-0'
@@ -220,10 +260,22 @@ export default function ServicesSection() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      initial={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      animate={{
+                        height: 'auto',
+                        opacity: 1,
+                      }}
+                      exit={{
+                        height: 0,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        duration: 0.6,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
                       className="overflow-hidden"
                     >
                       <motion.div
@@ -232,13 +284,15 @@ export default function ServicesSection() {
                         animate={{ y: 0 }}
                         transition={{ duration: 0.5 }}
                       >
-                        {category.collections.map((collection, collectionIndex) => (
-                          <CollectionCard
-                            key={collection.title}
-                            collection={collection}
-                            index={collectionIndex}
-                          />
-                        ))}
+                        {category.collections.map(
+                          (collection, collectionIndex) => (
+                            <CollectionCard
+                              key={collection.title}
+                              collection={collection}
+                              index={collectionIndex}
+                            />
+                          )
+                        )}
                       </motion.div>
                     </motion.div>
                   )}
@@ -262,23 +316,33 @@ export default function ServicesSection() {
             <p className="font-interface text-[10px] tracking-editorial uppercase text-champagne mb-3">
               Enhancements
             </p>
+
             <p className="font-narrative text-parchment/40 text-sm leading-relaxed">
-              Tailor your selection with thoughtful additions designed to elevate your experience and preserve even more of your story.
+              Tailor your selection with thoughtful additions designed to
+              elevate your experience and preserve even more of your story.
             </p>
           </div>
 
           <div className="md:col-span-8 space-y-5">
             {[
-              { label: 'Additional Coverage', price: '$100/hr' },
-              { label: 'Engagement Photo/Film Session', price: '$1,000' },
-              { label: 'Foundation & Essential Collections Photo Coverage', price: '$2,500' },
+              {
+                label: 'Additional Coverage',
+                price: '$200/hr',
+              },
+              {
+                label: 'Engagement Photo/Film Session',
+                price: '$1,000',
+              },
             ].map((item, i) => (
               <div
                 key={i}
                 className="flex items-center justify-between gap-6 border-b border-parchment/8 pb-5 last:border-0 last:pb-0"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-champagne/30 text-[8px]">—</span>
+                  <span className="text-champagne/30 text-[8px]">
+                    —
+                  </span>
+
                   <p className="font-narrative text-parchment/70 text-sm md:text-base">
                     {item.label}
                   </p>
