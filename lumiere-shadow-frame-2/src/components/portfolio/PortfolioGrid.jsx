@@ -29,10 +29,7 @@ function PortfolioImage({
     return () => observer.disconnect();
   }, []);
 
-  /*
-    Preload the next and previous images so that
-    swiping through a gallery feels smoother.
-  */
+  // Preload the next and previous images for smoother swiping
   useEffect(() => {
     if (!images || images.length <= 1) return;
 
@@ -221,15 +218,17 @@ function PortfolioImage({
       )}
 
       {/* Hover overlay */}
-      <div className="
-        absolute
-        inset-0
-        pointer-events-none
-        bg-black/0
-        group-hover:bg-black/10
-        transition
-        duration-500
-      " />
+      <div
+        className="
+          absolute
+          inset-0
+          pointer-events-none
+          bg-black/0
+          group-hover:bg-black/10
+          transition
+          duration-500
+        "
+      />
     </motion.div>
   );
 }
@@ -264,53 +263,60 @@ export default function PortfolioGrid({ images }) {
           duration: 0.8
         }}
       >
-        <p className="
-          font-interface
-          text-[10px]
-          md:text-xs
-          tracking-editorial
-          uppercase
-          text-champagne
-          mb-4
-        ">
+        <p
+          className="
+            font-interface
+            text-[10px]
+            md:text-xs
+            tracking-editorial
+            uppercase
+            text-champagne
+            mb-4
+          "
+        >
           Selected Works
         </p>
 
-        <h2 className="
-          font-display
-          italic
-          font-light
-          text-parchment
-          text-3xl
-          md:text-5xl
-          lg:text-6xl
-          leading-[0.95]
-        ">
+        <h2
+          className="
+            font-display
+            italic
+            font-light
+            text-parchment
+            text-3xl
+            md:text-5xl
+            lg:text-6xl
+            leading-[0.95]
+          "
+        >
           A curation of
           <br />
           timeless moments
         </h2>
 
-        <p className="
-          font-interface
-          text-[10px]
-          tracking-editorial
-          uppercase
-          text-parchment/40
-          mt-6
-        ">
+        <p
+          className="
+            font-interface
+            text-[10px]
+            tracking-editorial
+            uppercase
+            text-parchment/40
+            mt-6
+          "
+        >
           Swipe to view more
         </p>
       </motion.div>
 
-      <div className="
-        grid
-        grid-cols-12
-        gap-4
-        md:gap-6
-        lg:gap-8
-      ">
-
+      <div
+        className="
+          grid
+          grid-cols-12
+          gap-4
+          md:gap-6
+          lg:gap-8
+        "
+      >
         {/* Left feature gallery */}
         <PortfolioImage
           images={images[0]?.images}
@@ -324,29 +330,27 @@ export default function PortfolioGrid({ images }) {
         />
 
         {/* Right stacked galleries */}
-        <div className="
-          col-span-12
-          md:col-span-5
-          flex
-          flex-col
-          gap-4
-          md:gap-6
-          lg:gap-8
-        ">
+        <div
+          className="
+            col-span-12
+            md:col-span-5
+            flex
+            flex-col
+            gap-4
+            md:gap-6
+            lg:gap-8
+          "
+        >
           <PortfolioImage
             images={images[1]?.images}
             alt={images[1]?.alt}
-            className="
-              aspect-[16/9]
-            "
+            className="aspect-[16/9]"
           />
 
           <PortfolioImage
             images={images[2]?.images}
             alt={images[2]?.alt}
-            className="
-              aspect-[3/4]
-            "
+            className="aspect-[3/4]"
           />
         </div>
 
@@ -360,12 +364,11 @@ export default function PortfolioGrid({ images }) {
               col-span-12
               md:col-span-8
               md:col-start-3
-              aspect-[4/5]
+              aspect-[3/2]
               md:aspect-[16/10]
             "
           />
         )}
-
       </div>
     </section>
   );
