@@ -33,7 +33,6 @@ import JT4 from '../assets/images/JT4.jpg';
 import JT5 from '../assets/images/JT5.jpg';
 import JT6 from '../assets/images/JT6.jpg';
 import JT7 from '../assets/images/JT7.jpg';
-import JT8 from '../assets/images/JT8.jpg';
 
 const PORTRAIT_IMAGE = myPhoto;
 
@@ -134,10 +133,6 @@ const PORTFOLIO_IMAGES = [
       {
         src: JT7,
         alt: 'Bride and groom candid wedding moment by Acuna Cinema'
-      },
-      {
-        src: JT8,
-        alt: 'Timeless Michigan wedding photography by Acuna Cinema'
       }
     ]
   }
@@ -186,22 +181,17 @@ export default function Home() {
             mx-auto
           "
         >
-          Creating cinematic wedding films and timeless
-          photography for couples throughout Michigan.
-          Serving Detroit, Grand Rapids, Muskegon,
+          Creating cinematic wedding films and timeless photography for couples
+          throughout Michigan. Serving Detroit, Grand Rapids, Muskegon,
           Traverse City and destination weddings.
         </p>
       </section>
 
       <FilmsSection />
 
-      <PortfolioGrid
-        images={PORTFOLIO_IMAGES}
-      />
+      <PortfolioGrid images={PORTFOLIO_IMAGES} />
 
-      <AboutSection
-        portraitImage={PORTRAIT_IMAGE}
-      />
+      <AboutSection portraitImage={PORTRAIT_IMAGE} />
 
       <ServicesSection />
 
