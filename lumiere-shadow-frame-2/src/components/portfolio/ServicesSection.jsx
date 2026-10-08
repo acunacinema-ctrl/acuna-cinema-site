@@ -40,7 +40,7 @@ const filmCollections = [
     description:
       'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
     details:
-      '8 hours coverage\nLead videographer\nSocial Media Teaser film\nFull documentary film\n5–7 minute cinematic highlight film',
+      '8 hours coverage\nLead videographer\nSocial Media Trailer\nFull documentary film\n5–7 minute cinematic highlight film',
     nudge:
       'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $2,800',
@@ -54,7 +54,7 @@ const completeStoryCollections = [
     description:
       'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
     details:
-      '9 hours coverage\nLead photographer\nLead videographer\n+1 second videographer\nSocial Media Teaser film\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
+      '9 hours coverage\nLead photographer\nLead videographer\n+1 second videographer\nSocial Media Trailer\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
     nudge:
       'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
     pricing: 'Investment begins at $5,500',
@@ -64,7 +64,7 @@ const completeStoryCollections = [
     description:
       'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
     details:
-      '10+ hours coverage\nLead photographer\n+1 second photographer\nLead videographer\n+1 second videographer\nSocial Media Teaser film\nFull documentary film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
+      '10+ hours coverage\nLead photographer\n+1 second photographer\nLead videographer\n+1 second videographer\nSocial Media Trailer\nFull documentary film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
     nudge:
       'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $7,000',
