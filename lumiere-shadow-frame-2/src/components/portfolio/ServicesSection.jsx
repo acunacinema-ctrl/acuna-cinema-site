@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,10 +8,10 @@ const photographyCollections = [
     description:
       'Beautifully considered wedding photography focused on the moments, details, and people that make your day uniquely yours.',
     details:
-      '8 hours coverage\nLead photographer\n+1 second photographer\n600+ professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+      '8 hours coverage\nLead photographer\n400 professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
-    pricing: 'Investment begins at $2,800',
+    pricing: 'Investment begins at $2,000',
   },
   {
     title: 'Premier Collection',
