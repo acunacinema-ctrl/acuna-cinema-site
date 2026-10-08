@@ -15,7 +15,6 @@ const photographyCollections = [
   },
   {
     title: 'Premier Collection',
-    subtitle: 'Most Popular',
     description:
       'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
     details:
