@@ -147,7 +147,7 @@ export default function PortfolioGrid({ images }) {
   return (
     <section
       id="portfolio"
-      className="px-6 md:px-12 lg:px-20 py-24 md:py-40"
+      className="px-6 md:px-12 lg:px-20 pt-12 md:pt-16 pb-20 md:pb-28"
       aria-label="Portfolio"
     >
       <motion.div
@@ -173,7 +173,6 @@ export default function PortfolioGrid({ images }) {
       </motion.div>
 
       <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8">
-
         {/* Left feature gallery */}
         <PortfolioImage
           images={images[0]?.images}
@@ -202,7 +201,6 @@ export default function PortfolioGrid({ images }) {
             className="col-span-12 md:col-span-8 md:col-start-3"
           />
         )}
-
       </div>
     </section>
   );
