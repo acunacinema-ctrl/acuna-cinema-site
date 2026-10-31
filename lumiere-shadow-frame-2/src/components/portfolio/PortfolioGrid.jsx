@@ -158,7 +158,7 @@ export default function PortfolioGrid({ images }) {
         transition={{ duration: 0.8 }}
       >
         <p className="font-interface text-[10px] md:text-xs tracking-editorial uppercase text-champagne mb-4">
-          Selected Works
+          Selected Photography Works
         </p>
 
         <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[0.95]">
