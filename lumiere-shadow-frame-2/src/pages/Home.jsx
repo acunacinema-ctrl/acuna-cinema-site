@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationMenu from '../components/portfolio/NavigationMenu';
 import HeroSection from '../components/portfolio/HeroSection.jsx';
 import PortfolioGrid from '../components/portfolio/PortfolioGrid';
+import SocialTrailersSection from '../components/portfolio/SocialTrailersSection';
 import FilmsSection from '../components/portfolio/FilmsSection';
 import AboutSection from '../components/portfolio/AboutSection';
 import ServicesSection from '../components/portfolio/ServicesSection';
@@ -189,6 +190,8 @@ export default function Home() {
       </section>
 
       <PortfolioGrid images={PORTFOLIO_IMAGES} />
+
+      <SocialTrailersSection />
 
       <FilmsSection />
 
