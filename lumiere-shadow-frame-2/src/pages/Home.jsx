@@ -152,7 +152,8 @@ export default function Home() {
           mx-auto
           px-8
           pt-20
-          pb-32
+          pb-8
+          md:pb-12
           text-center
         "
       >
@@ -187,15 +188,15 @@ export default function Home() {
         </p>
       </section>
 
-      <FilmsSection />
-
       <PortfolioGrid images={PORTFOLIO_IMAGES} />
 
-      <AboutSection portraitImage={PORTRAIT_IMAGE} />
+      <FilmsSection />
+
+      <Testimonials />
 
       <ServicesSection />
 
-      <Testimonials />
+      <AboutSection portraitImage={PORTRAIT_IMAGE} />
 
       <ContactSection />
 
