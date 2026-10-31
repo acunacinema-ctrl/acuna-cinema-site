@@ -2,25 +2,76 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
+function getVimeoInfo(url) {
+  if (!url) return null;
+
+  const match = url.match(
+    /vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-zA-Z0-9]+))?/
+  );
+
+  if (!match) return null;
+
+  const queryHash = url.match(/[?&]h=([a-zA-Z0-9]+)/);
+
+  return {
+    id: match[1],
+    hash: match[2] || queryHash?.[1] || null,
+  };
+}
+
+function toVimeoPlayerUrl(url, parameters) {
+  const video = getVimeoInfo(url);
+
+  if (!video) return null;
+
+  const query = [];
+
+  if (video.hash) {
+    query.push(`h=${encodeURIComponent(video.hash)}`);
+  }
+
+  query.push(...parameters);
+
+  return `https://player.vimeo.com/video/${video.id}?${query.join('&')}`;
+}
+
 function toEmbedUrl(url) {
   if (!url) return null;
-  const vimeo = url.match(/vimeo\.com\/(\d+)/);
-  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}?autoplay=1&title=0&byline=0&portrait=0`;
+
+  const vimeoUrl = toVimeoPlayerUrl(url, [
+    'autoplay=1',
+    'title=0',
+    'byline=0',
+    'portrait=0',
+  ]);
+
+  if (vimeoUrl) return vimeoUrl;
+
   const ytWatch = url.match(/youtube\.com\/watch\?v=([\w-]+)/);
   if (ytWatch) return `https://www.youtube.com/embed/${ytWatch[1]}?autoplay=1`;
+
   const ytShort = url.match(/youtu\.be\/([\w-]+)/);
   if (ytShort) return `https://www.youtube.com/embed/${ytShort[1]}?autoplay=1`;
+
   return url;
 }
 
 function toPreviewUrl(url) {
-  if (!url) return null;
-  const vimeo = url.match(/vimeo\.com\/(\d+)/);
-  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}?background=1&autoplay=1&muted=1&loop=1`;
-  return null;
+  return toVimeoPlayerUrl(url, [
+    'background=1',
+    'autoplay=1',
+    'muted=1',
+    'loop=1',
+  ]);
 }
 
-export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
+export default function FilmCard({
+  film,
+  index,
+  activeIndex,
+  setActiveIndex,
+  showInfo = true,
+}) {
   const videoRef = useRef(null);
   const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -29,32 +80,35 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
   const [modalOpen, setModalOpen] = useState(false);
   const isActive = isMobile ? activeIndex === index : isHovered;
 
-  const isVimeo = !!film.filmUrl;
+  const isVimeo = !!getVimeoInfo(film.filmUrl);
   const previewUrl = toPreviewUrl(film.filmUrl);
 
   useEffect(() => {
     setIsMobile('ontouchstart' in window || window.innerWidth < 768);
   }, []);
+
   useEffect(() => {
-  if (!isMobile) return;
+    if (!isMobile) return;
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setActiveIndex(index);
-      }
-    },
-    { threshold: 0.6 }
-  );
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActiveIndex(index);
+        }
+      },
+      { threshold: 0.6 }
+    );
 
-  if (ref.current) observer.observe(ref.current);
+    if (ref.current) observer.observe(ref.current);
 
-  return () => observer.disconnect();
-}, [index, isMobile]);
+    return () => observer.disconnect();
+  }, [index, isMobile, setActiveIndex]);
 
   const handleEnter = () => {
     if (isMobile) return;
+
     setIsHovered(true);
+
     if (!isVimeo && videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
@@ -64,7 +118,9 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
 
   const handleLeave = () => {
     if (isMobile) return;
+
     setIsHovered(false);
+
     if (!isVimeo && videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
@@ -77,14 +133,21 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
       setModalOpen(true);
       return;
     }
+
     if (!isMobile) return;
+
     if (isPlaying) {
       setIsHovered(false);
       videoRef.current?.pause();
-      if (videoRef.current) videoRef.current.currentTime = 0;
+
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+      }
+
       setIsPlaying(false);
     } else {
       setIsHovered(true);
+
       if (videoRef.current) {
         videoRef.current.currentTime = 0;
         videoRef.current.play().catch(() => {});
@@ -96,19 +159,25 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
   return (
     <>
       <motion.div
-  ref={ref}
-  className="group relative cursor-pointer"
+        ref={ref}
+        className="group relative cursor-pointer"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: index * 0.12, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{
+          delay: index * 0.12,
+          duration: 0.8,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
         onClick={handleClick}
         tabIndex={0}
         role="button"
         aria-label={`Watch preview of ${film.title}`}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleClick(); }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') handleClick();
+        }}
         onFocus={handleEnter}
         onBlur={handleLeave}
       >
@@ -117,9 +186,13 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
           {/* Cover photo */}
           <img
             src={film.cover}
-            alt={`${film.title} - wedding film cover`}
+            alt={`${film.title} preview thumbnail`}
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-              isActive && !isVimeo ? 'scale-105 opacity-0' : isActive ? 'scale-105' : 'scale-100 opacity-100'
+              isActive && !isVimeo
+                ? 'scale-105 opacity-0'
+                : isActive
+                  ? 'scale-105'
+                  : 'scale-100 opacity-100'
             }`}
           />
 
@@ -140,7 +213,11 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
 
           {/* Vimeo background preview iframe */}
           {isVimeo && previewUrl && (
-            <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+            <div
+              className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               {isActive && (
                 <iframe
                   src={previewUrl}
@@ -173,9 +250,13 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     exit={{ scaleX: 0 }}
-                    transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.76, 0, 0.24, 1],
+                    }}
                     className="h-px bg-champagne w-16 mx-auto mb-5 origin-left"
                   />
+
                   <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -185,11 +266,16 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
                   >
                     Watch Full Film
                   </motion.p>
+
                   <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     exit={{ scaleX: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.1,
+                      ease: [0.76, 0, 0.24, 1],
+                    }}
                     className="h-px bg-champagne w-16 mx-auto mt-5 origin-right"
                   />
                 </div>
@@ -199,37 +285,52 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
 
           {/* Corner brackets */}
           <div className="absolute top-4 left-4 z-20 pointer-events-none">
-            <div className={`transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+            <div
+              className={`transition-opacity duration-500 ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               <div className="w-4 h-px bg-champagne" />
               <div className="w-px h-4 bg-champagne" />
             </div>
           </div>
+
           <div className="absolute top-4 right-4 z-20 pointer-events-none">
-            <div className={`flex flex-col items-end transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+            <div
+              className={`flex flex-col items-end transition-opacity duration-500 ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               <div className="w-4 h-px bg-champagne" />
               <div className="w-px h-4 bg-champagne ml-auto" />
             </div>
           </div>
         </div>
 
-        {/* Card info below */}
-        <div className="pt-5 pb-2">
-          <div className="flex items-start justify-between">
-            <div>
-              <h3 className={`font-display italic font-light text-xl md:text-2xl leading-tight transition-colors duration-500 ${
-                isActive ? 'text-champagne' : 'text-parchment'
-              }`}>
-                {film.title}
-              </h3>
-              <p className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 mt-2">
-                {film.location}
-              </p>
+        {/* Optional title, location, and year */}
+        {showInfo && (
+          <div className="pt-5 pb-2">
+            <div className="flex items-start justify-between">
+              <div>
+                <h3
+                  className={`font-display italic font-light text-xl md:text-2xl leading-tight transition-colors duration-500 ${
+                    isActive ? 'text-champagne' : 'text-parchment'
+                  }`}
+                >
+                  {film.title}
+                </h3>
+
+                <p className="font-interface text-[10px] tracking-editorial uppercase text-parchment/30 mt-2">
+                  {film.location}
+                </p>
+              </div>
+
+              <span className="font-interface text-[10px] tracking-editorial text-champagne/30 mt-1">
+                {film.year}
+              </span>
             </div>
-            <span className="font-interface text-[10px] tracking-editorial text-champagne/30 mt-1">
-              {film.year}
-            </span>
           </div>
-        </div>
+        )}
       </motion.div>
 
       {/* Vimeo Modal */}
@@ -249,7 +350,7 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               <iframe
                 src={toEmbedUrl(film.filmUrl)}
@@ -258,6 +359,7 @@ export default function FilmCard({ film, index, activeIndex, setActiveIndex }) {
                 allowFullScreen
                 title={film.title}
               />
+
               <button
                 onClick={() => setModalOpen(false)}
                 className="absolute -top-10 right-0 font-interface text-[10px] tracking-editorial uppercase text-parchment/50 hover:text-champagne transition-colors flex items-center gap-2"
