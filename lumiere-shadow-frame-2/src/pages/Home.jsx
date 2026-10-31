@@ -103,12 +103,12 @@ const PORTFOLIO_IMAGES = [
   {
     images: [
       {
-        src: JT1,
-        alt: 'Bride and groom wedding portrait photographed by Acuna Cinema'
-      },
-      {
         src: JT2,
         alt: 'Bride and groom wedding photography by Acuna Cinema'
+      },
+      {
+        src: JT1,
+        alt: 'Bride and groom wedding portrait photographed by Acuna Cinema'
       },
       {
         src: JT22,
