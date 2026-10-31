@@ -29,8 +29,13 @@ const films = [
 
 export default function FilmsSection() {
   const [activeIndex, setActiveIndex] = useState(null);
+
   return (
-    <section id="films" className="px-6 md:px-12 lg:px-20 py-24 md:py-40" aria-label="Films">
+    <section
+      id="films"
+      className="px-6 md:px-12 lg:px-20 pt-12 md:pt-16 pb-24 md:pb-40"
+      aria-label="Films"
+    >
       <motion.div
         className="mb-16 md:mb-24 md:ml-auto md:mr-[8%] md:text-right"
         initial={{ opacity: 0, y: 30 }}
@@ -41,21 +46,24 @@ export default function FilmsSection() {
         <p className="font-interface text-[10px] md:text-xs tracking-editorial uppercase text-champagne mb-4">
           Cinematic Films
         </p>
+
         <h2 className="font-display italic font-light text-parchment text-3xl md:text-5xl lg:text-6xl leading-[0.95]">
-          Stories told<br />in motion
+          Stories told
+          <br />
+          in motion
         </h2>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-       {films.map((film, i) => (
-  <FilmCard
-    key={film.title}
-    film={film}
-    index={i}
-    activeIndex={activeIndex}
-    setActiveIndex={setActiveIndex}
-  />
-))}
+        {films.map((film, i) => (
+          <FilmCard
+            key={film.title}
+            film={film}
+            index={i}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
+        ))}
       </div>
 
       <motion.p
