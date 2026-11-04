@@ -62,6 +62,7 @@ export default function FilmsSection() {
             index={i}
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}
+            centerActivation={true}
           />
         ))}
       </div>
