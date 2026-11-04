@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FilmCard from './FilmCard';
+import kyleNatalieBridge from '@/assets/images/KyleNatalieBridge.jpg';
+import tahlorRonnellBed from '@/assets/images/TahlorRonnellBedPhoto.png';
 
 const trailers = [
   {
     title: 'Social Media Trailer 1',
-    cover: 'https://i.vimeocdn.com/video/2219902897-e2f61869f200815c0419c03d2a207ff381787f6badb68a88c4c099a910d2d3a6-d_295x166?region=us',
+    cover: kyleNatalieBridge,
     filmUrl: 'https://vimeo.com/1241807493/4fb8e7485d?share=copy&fl=sv&fe=ci',
   },
   {
     title: 'Social Media Trailer 2',
-    cover: 'https://i.vimeocdn.com/video/2219904766-009dc813cd9b10957288f2b5f529767e4a387d23b250f77cca81896175e705da-d_295x166?region=us',
+    cover: tahlorRonnellBed,
     filmUrl: 'https://vimeo.com/1241809505/866fbd351a?share=copy&fl=sv&fe=ci',
   },
 ];
