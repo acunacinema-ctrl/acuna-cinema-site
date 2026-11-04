@@ -71,6 +71,7 @@ export default function FilmCard({
   activeIndex,
   setActiveIndex,
   showInfo = true,
+  centerActivation = false,
 }) {
   const videoRef = useRef(null);
   const ref = useRef(null);
@@ -90,19 +91,36 @@ export default function FilmCard({
   useEffect(() => {
     if (!isMobile) return;
 
+    // Social trailers activate only inside the center band of the screen.
+    const centerOffset = centerActivation
+      ? Math.round(window.innerHeight * 0.34)
+      : 0;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setActiveIndex(index);
+        if (!entry.isIntersecting) return;
+
+        if (centerActivation) {
+          if (entry.intersectionRatio >= 0.8) {
+            setActiveIndex(index);
+          }
+          return;
         }
+
+        setActiveIndex(index);
       },
-      { threshold: 0.6 }
+      {
+        threshold: centerActivation ? 0.8 : 0.6,
+        rootMargin: centerActivation
+          ? `-${centerOffset}px 0px -${centerOffset}px 0px`
+          : '0px',
+      }
     );
 
     if (ref.current) observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [index, isMobile, setActiveIndex]);
+  }, [index, isMobile, setActiveIndex, centerActivation]);
 
   const handleEnter = () => {
     if (isMobile) return;
