@@ -53,6 +53,7 @@ export default function SocialTrailersSection() {
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}
             showInfo={false}
+            centerActivation={true}
           />
         ))}
       </div>
