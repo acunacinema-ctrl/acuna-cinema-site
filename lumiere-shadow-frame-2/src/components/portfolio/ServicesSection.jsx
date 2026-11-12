@@ -36,7 +36,7 @@ const filmCollections = [
     pricing: 'Investment begins at $2,300',
   },
   {
-    title: 'Essential Story Collection',
+    title: 'Essential Collection',
     description:
       'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
     details:
