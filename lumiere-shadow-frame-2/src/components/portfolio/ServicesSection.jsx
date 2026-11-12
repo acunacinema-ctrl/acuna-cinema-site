@@ -11,7 +11,7 @@ const photographyCollections = [
       '6 hours coverage\nLead Photo Artist\n400 professionally edited photos\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
-    pricing: 'Investment begins at $2,000',
+    pricing: 'Investment begins at $2,500',
   },
   {
     title: 'Classic Collection',
