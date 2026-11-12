@@ -11,7 +11,7 @@ const photographyCollections = [
       '6 hours coverage\nLead Photo Artist\n400 professionally edited photos\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
-    pricing: 'Investment begins at $2,500',
+    pricing: 'Investment begins at $2,400',
   },
   {
     title: 'Classic Collection',
@@ -33,17 +33,17 @@ const filmCollections = [
     details: '6 hours coverage\nLead videographer\nDocumentary film',
     nudge:
       'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
-    pricing: 'Investment begins at $2,300',
+    pricing: 'Investment begins at $2,800',
   },
   {
-    title: 'Essential Collection',
+    title: 'Legacy Story Collection',
     description:
       'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
     details:
       '8 hours coverage\nLead videographer\nSocial Media Trailer\nFull documentary film\n5–7 minute cinematic highlight film',
     nudge:
       'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
-    pricing: 'Investment begins at $2,800',
+    pricing: 'Investment begins at $4,500',
   },
 ];
 
