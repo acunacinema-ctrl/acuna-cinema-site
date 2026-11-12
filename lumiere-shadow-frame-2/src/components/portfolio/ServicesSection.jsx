@@ -8,7 +8,7 @@ const photographyCollections = [
     description:
       'Beautifully considered wedding photography focused on the moments, details, and people that make your day uniquely yours.',
     details:
-      '6 hours coverage\nLead Photo Artist\n400 professionally edited photos\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+      '6 hours coverage\nLead Photo Artist\n400 professionally edited photos\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'A complete photography experience for couples who want their wedding documented with intention, artistry, and care.',
     pricing: 'Investment begins at $2,000',
@@ -18,7 +18,7 @@ const photographyCollections = [
     description:
       'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
     details:
-      '9 hours coverage\nLead Photo Artist\n+2nd Photo Artist\n800+ professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nOnline gallery\nHigh-resolution downloads\nPrinting rights',
+      '9 hours coverage\nLead Photo Artist\n+2nd Photo Artist\n800+ professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'For couples who want a deeper, more complete visual record of their wedding — beautifully photographed from beginning to end.',
     pricing: 'Investment begins at $4,200',
