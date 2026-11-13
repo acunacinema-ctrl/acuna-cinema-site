@@ -30,7 +30,7 @@ const filmCollections = [
     title: 'Foundation Collection',
     description:
       'A refined, intentional approach to documenting your wedding day — focused on the moments that matter most.',
-    details: '6 hours coverage\nLead videographer\nDocumentary film',
+    details: '6 hours coverage\nLead video artist\nDocumentary film\nFull ceremony film\nRAW film back-up service',
     nudge:
       'Crafted for couples who value authenticity, emotion, and simplicity — preserving your day in a way that feels honest and timeless.',
     pricing: 'Investment begins at $2,600',
