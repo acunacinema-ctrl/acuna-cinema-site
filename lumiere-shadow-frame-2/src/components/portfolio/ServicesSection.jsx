@@ -64,10 +64,10 @@ const completeStoryCollections = [
     description:
       'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
     details:
-      '10 hours coverage\nLead photo artist\nLead video artist\n+2nd Photo artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n12–15 minute heirloom wedding film\n800 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
+      'Multi-day coverage\nLead photo artist\nLead video artist\n+2nd Photo artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n12–15 minute heirloom wedding film\n800 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
     nudge:
       'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
-    pricing: 'Investment begins at $7,000',
+    pricing: 'Investment begins at $8,000',
   },
 ];
 
