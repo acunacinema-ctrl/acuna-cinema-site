@@ -40,7 +40,7 @@ const filmCollections = [
     description:
       'Designed to preserve your story in full — from the vows you exchange to the words shared by those closest to you.',
     details:
-      '9 hours coverage\nLead video artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n5–7 minute cinematic highlight film\nfull ceremony film',
+      '9 hours coverage\nLead video artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n5–7 minute cinematic highlight film\nfull ceremony film\nRAW film back-up service',
     nudge:
       'A complete and immersive way to relive your wedding day — with depth, emotion, and intention in every frame.',
     pricing: 'Investment begins at $4,500',
@@ -54,10 +54,10 @@ const completeStoryCollections = [
     description:
       'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
     details:
-      '9 hours coverage\nLead photographer\nLead videographer\n+1 second videographer\nSocial Media Trailer\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos',
+      '9 hours coverage\nLead photo artist\nLead video artist\n+2nd Photo artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
     nudge:
       'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
-    pricing: 'Investment begins at $5,500',
+    pricing: 'Investment begins at $6,000',
   },
   {
     title: 'Luxury Collection',
