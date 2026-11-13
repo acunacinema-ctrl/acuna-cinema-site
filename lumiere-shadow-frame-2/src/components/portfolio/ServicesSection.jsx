@@ -18,7 +18,7 @@ const photographyCollections = [
     description:
       'A more expansive photographic experience designed to preserve the full arc of your wedding day — from the anticipation to the final celebration.',
     details:
-      '9 hours coverage\nLead Photo Artist\n+2nd Photo Artist\n800+ professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
+      '9 hours coverage\nLead Photo Artist\n+2nd Photo Artist\n800 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights',
     nudge:
       'For couples who want a deeper, more complete visual record of their wedding — beautifully photographed from beginning to end.',
     pricing: 'Investment begins at $4,200',
@@ -64,7 +64,7 @@ const completeStoryCollections = [
     description:
       'A fully immersive, high-touch experience — designed to document your wedding with the highest level of care, artistry, and intention.',
     details:
-      '10+ hours coverage\nLead photographer\n+1 second photographer\nLead videographer\n+1 second videographer\nSocial Media Trailer\nFull documentary film\n12–15 minute heirloom film\n800 professionally edited photos\nPriority delivery',
+      '10 hours coverage\nLead photo artist\nLead video artist\n+2nd Photo artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n12–15 minute heirloom wedding film\n800 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
     nudge:
       'An elevated, bespoke approach for couples who want their story told at the highest level — timeless, cinematic, and deeply personal.',
     pricing: 'Investment begins at $7,000',
