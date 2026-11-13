@@ -54,7 +54,7 @@ const completeStoryCollections = [
     description:
       'A more expansive approach to storytelling — capturing not just the day, but the atmosphere, energy, and in-between moments that make it yours.',
     details:
-      '9 hours coverage\nLead photo artist\nLead video artist\n+2nd Photo artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
+      '9 hours coverage\nLead photo artist\nLead video artist\n+2nd video artist\nSocial Media Trailer\nFull documentary film\n8–10 minute heirloom wedding film\n500 professionally edited photos\n"Sneak Peek" small photo sample 1-2 days after wedding\nPrivate Online Gallery & Fine Art Print Ordering\nHigh-resolution downloads\nPrinting rights\nRAW film back-up service',
     nudge:
       'For couples who want a richer, more detailed narrative — crafted with a cinematic and artistic perspective.',
     pricing: 'Investment begins at $6,000',
